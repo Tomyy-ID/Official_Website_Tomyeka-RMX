@@ -18,7 +18,7 @@ const projects = [
   type: "ZIP",
   size: "8,6 MB",
   date: "Rabu, 6 Mei 2026",
-  videoid: "RBXPIe9ybaU?si=2rHeWfr5oYe1VGU-",
+  videoid: "RBXPIe9ybaU",
   link: "https://sub4unlock.co/i2mO"
 },
 
@@ -29,7 +29,7 @@ const projects = [
   type: "ZIP",
   size: "6,8 MB",
   date: "Minggu, 26 April 2026",
-  videoid: "kKOXsIuLExg?si=8EMtmD6HBR0DlKw1",
+  videoid: "kKOXsIuLExg",
   link: "https://sub4unlock.co/LlUX9VdT"
 },
 
