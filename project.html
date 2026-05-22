@@ -1,0 +1,1132 @@
+<!-- ======================================================
+FILE : project.html
+PREMIUM YOUTUBE VIEW UNLOCK VERSION
+TOMY EKA RMX
+====================================================== -->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Project FLM | Tomy Eka RMX</title>
+
+<meta name="description"
+content="Project FL Studio Mobile (FLM) Tomy Eka RMX">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* ======================================================
+ROOT
+====================================================== */
+
+:root{
+  --bg:#070b14;
+  --card:rgba(255,255,255,.05);
+  --text:#ffffff;
+  --text2:#cbd5e1;
+  --primary:#7c5cff;
+  --secondary:#4fd1ff;
+  --border:rgba(255,255,255,.08);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* ======================================================
+BACKGROUND
+====================================================== */
+
+.bg-blur{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(120px);
+  z-index:-1;
+}
+
+.blur1{
+  width:350px;
+  height:350px;
+  background:#7c5cff;
+  top:-100px;
+  left:-100px;
+  opacity:.35;
+}
+
+.blur2{
+  width:350px;
+  height:350px;
+  background:#4fd1ff;
+  bottom:-100px;
+  right:-100px;
+  opacity:.25;
+}
+
+/* ======================================================
+HEADER
+====================================================== */
+
+.header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:999;
+  backdrop-filter:blur(18px);
+  background:rgba(10,10,20,.55);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.navbar{
+  max-width:1450px;
+  margin:auto;
+  padding:18px 25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  text-decoration:none;
+}
+
+.logo-text{
+  font-size:1.5rem;
+  font-weight:800;
+  background:linear-gradient(
+    90deg,
+    #7c5cff,
+    #4fd1ff
+  );
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.nav-menu{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+.nav-menu a{
+  text-decoration:none;
+  color:#fff;
+  font-weight:500;
+  transition:.3s;
+}
+
+.nav-menu a:hover{
+  color:#4fd1ff;
+}
+
+.active-link{
+  color:#4fd1ff !important;
+}
+
+.nav-btn{
+  background:linear-gradient(
+    90deg,
+    #7c5cff,
+    #4fd1ff
+  );
+  padding:12px 22px;
+  border-radius:14px;
+}
+
+.menu-toggle{
+  display:none;
+  color:#fff;
+  font-size:2rem;
+  cursor:pointer;
+}
+
+/* ======================================================
+HERO
+====================================================== */
+
+.hero{
+  min-height:55vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:140px 20px 60px;
+}
+
+.hero-content{
+  max-width:850px;
+}
+
+.badge{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:999px;
+  background:rgba(124,92,255,.15);
+  border:1px solid rgba(124,92,255,.25);
+  color:#a5b4fc;
+  margin-bottom:25px;
+}
+
+.hero h1{
+  font-size:4rem;
+  line-height:1.1;
+  margin-bottom:20px;
+  font-weight:900;
+}
+
+.hero h1 span{
+  background:linear-gradient(
+    90deg,
+    #7c5cff,
+    #4fd1ff
+  );
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  color:var(--text2);
+  line-height:1.9;
+}
+
+/* ======================================================
+SECTION
+====================================================== */
+
+.section{
+  padding:80px 20px;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-title h2{
+  font-size:2.6rem;
+  margin-bottom:10px;
+}
+
+.section-title p{
+  color:var(--text2);
+}
+
+/* ======================================================
+SEARCH
+====================================================== */
+
+.project-search{
+  width:100%;
+  max-width:1450px;
+  margin:auto auto 30px;
+}
+
+.project-search input{
+  width:100%;
+  padding:18px 22px;
+  border:none;
+  outline:none;
+  border-radius:20px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(18px);
+  color:#fff;
+  font-size:1rem;
+  font-family:'Poppins',sans-serif;
+}
+
+.project-search input::placeholder{
+  color:#94a3b8;
+}
+
+/* ======================================================
+TABLE
+====================================================== */
+
+.project-container{
+  width:100%;
+  max-width:1450px;
+  margin:auto;
+  overflow-x:auto;
+  border-radius:28px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(18px);
+}
+
+.project-table{
+  width:100%;
+  min-width:1100px;
+  border-collapse:collapse;
+}
+
+.project-table thead{
+  background:rgba(124,92,255,.15);
+}
+
+.project-table th{
+  padding:22px;
+  text-align:left;
+}
+
+.project-table td{
+  padding:20px 22px;
+  border-top:1px solid rgba(255,255,255,.05);
+  color:#cbd5e1;
+}
+
+.project-table tbody tr:hover{
+  background:rgba(255,255,255,.03);
+}
+
+.project-number{
+  color:#7dd3fc;
+  font-weight:700;
+}
+
+.project-title{
+  color:#fff;
+  font-weight:600;
+}
+
+.project-info{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(79,209,255,.12);
+  border:1px solid rgba(79,209,255,.2);
+  color:#7dd3fc;
+  font-size:.85rem;
+  font-weight:600;
+}
+
+.download-btn{
+  border:none;
+  cursor:pointer;
+  padding:12px 18px;
+  border-radius:14px;
+  background:linear-gradient(
+    90deg,
+    #7c5cff,
+    #4fd1ff
+  );
+  color:#fff;
+  font-weight:600;
+  transition:.35s;
+}
+
+.download-btn:hover{
+  transform:translateY(-4px);
+}
+
+/* ======================================================
+POPUP
+====================================================== */
+
+.popup-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(10px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:99999;
+  opacity:0;
+  pointer-events:none;
+  transition:.35s;
+}
+
+.popup-overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.popup-box{
+  width:100%;
+  max-width:520px;
+  background:rgba(15,23,42,.95);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:30px;
+  padding:35px;
+  position:relative;
+}
+
+.popup-close{
+  position:absolute;
+  top:18px;
+  right:18px;
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  cursor:pointer;
+}
+
+.popup-badge{
+  display:inline-block;
+  padding:8px 15px;
+  border-radius:999px;
+  background:rgba(124,92,255,.15);
+  color:#a5b4fc;
+  font-size:.85rem;
+  margin-bottom:18px;
+}
+
+.popup-top h2{
+  font-size:1.7rem;
+  line-height:1.4;
+  margin-bottom:10px;
+}
+
+.popup-top p{
+  color:#94a3b8;
+}
+
+.popup-info-list{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  margin:30px 0;
+}
+
+.popup-info-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(255,255,255,.04);
+  border-radius:18px;
+  padding:15px 18px;
+}
+
+.progress-area{
+  margin-bottom:28px;
+}
+
+.progress-text{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+.progress-bar{
+  width:100%;
+  height:14px;
+  background:rgba(255,255,255,.08);
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  width:0%;
+  height:100%;
+  background:linear-gradient(
+    90deg,
+    #7c5cff,
+    #4fd1ff
+  );
+  transition:1s;
+}
+
+.popup-download-btn{
+  width:100%;
+  border:none;
+  padding:18px;
+  border-radius:18px;
+  background:linear-gradient(
+    90deg,
+    #7c5cff,
+    #4fd1ff
+  );
+  color:#fff;
+  font-size:1rem;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.popup-download-btn:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+/* ======================================================
+FOOTER
+====================================================== */
+
+.footer{
+  padding:50px 20px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.08);
+  margin-top:80px;
+}
+
+.footer p{
+  color:#94a3b8;
+}
+
+/* ======================================================
+RESPONSIVE
+====================================================== */
+
+@media(max-width:900px){
+
+  .hero h1{
+    font-size:2.5rem;
+  }
+
+  .nav-menu{
+    position:absolute;
+    top:85px;
+    left:0;
+    width:100%;
+    background:#0f172a;
+    flex-direction:column;
+    padding:30px;
+    display:none;
+  }
+
+  .nav-menu.active{
+    display:flex;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+
+<div class="bg-blur blur1"></div>
+<div class="bg-blur blur2"></div>
+
+<!-- HEADER -->
+
+<header class="header">
+
+<nav class="navbar">
+
+<a href="#" class="logo">
+<span class="logo-text">
+Tomy Eka RMX
+</span>
+</a>
+
+<div class="nav-menu" id="navMenu">
+
+<a href="#">Home</a>
+<a href="#">Project</a>
+
+<a href="https://www.youtube.com/@TomyEkaRMX"
+target="_blank"
+class="nav-btn">
+
+YouTube
+
+</a>
+
+</div>
+
+<div class="menu-toggle"
+id="menuToggle">
+
+☰
+
+</div>
+
+</nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="badge">
+Official FLM Project
+</div>
+
+<h1>
+SHARE PROJECT
+<span>FL STUDIO MOBILE</span>
+</h1>
+
+<p>
+Download project FL Studio Mobile,
+template remix, dan DJ slow bass.
+</p>
+
+</div>
+
+</section>
+
+<!-- PROJECT -->
+
+<section class="section">
+
+<div class="section-title">
+
+<h2>Daftar Project FLM</h2>
+
+<p>
+Unlock download ketika video
+mencapai 1K views
+</p>
+
+</div>
+
+<!-- SEARCH -->
+
+<div class="project-search">
+
+<input type="text"
+id="searchProject"
+placeholder="Cari project FLM...">
+
+</div>
+
+<!-- TABLE -->
+
+<div class="project-container">
+
+<table class="project-table">
+
+<thead>
+
+<tr>
+
+<th>No</th>
+<th>Judul Project</th>
+<th>Info</th>
+<th>Download</th>
+
+</tr>
+
+</thead>
+
+<tbody id="projectTable">
+
+<tr>
+
+<td class="project-number">
+1
+</td>
+
+<td class="project-title">
+DJ TRAP ARABIC INNI UHIBBUKA
+</td>
+
+<td>
+
+<span class="project-info">
+Vocal + FLM
+</span>
+
+</td>
+
+<td>
+
+<button class="download-btn openPopup"
+
+data-title="DJ TRAP ARABIC INNI UHIBBUKA"
+data-type="ZIP"
+data-size="11 MB"
+data-date="Jumat, 22 Mei 2026"
+data-videoid="IfAjHb5YUo4"
+data-link="https://sub4unlock.co/3FrarU">
+
+⬇ Download
+
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<h2>Tomy Eka RMX</h2>
+
+<p>
+© 2026 Tomy Eka RMX
+</p>
+
+</footer>
+
+<!-- ======================================================
+POPUP
+====================================================== -->
+
+<div class="popup-overlay"
+id="popupOverlay">
+
+<div class="popup-box">
+
+<button class="popup-close"
+id="closePopup">
+
+✕
+
+</button>
+
+<div class="popup-top">
+
+<div class="popup-badge">
+PROJECT FLM
+</div>
+
+<h2 id="popupTitle">
+Loading...
+</h2>
+
+<p id="popupViews">
+Views : 0
+</p>
+
+</div>
+
+<div class="popup-info-list">
+
+<div class="popup-info-item">
+
+<span>Tipe File</span>
+
+<strong id="popupType">
+ZIP
+</strong>
+
+</div>
+
+<div class="popup-info-item">
+
+<span>Ukuran File</span>
+
+<strong id="popupSize">
+11 MB
+</strong>
+
+</div>
+
+<div class="popup-info-item">
+
+<span>Tanggal Upload</span>
+
+<strong id="popupDate">
+22 Mei 2026
+</strong>
+
+</div>
+
+<div class="popup-info-item">
+
+<span>Status</span>
+
+<strong id="popupStatus">
+Checking...
+</strong>
+
+</div>
+
+</div>
+
+<div class="progress-area">
+
+<div class="progress-text">
+
+<span>
+Progress Unlock
+</span>
+
+<span id="progressPercent">
+0%
+</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div class="progress-fill"
+id="progressFill">
+
+</div>
+
+</div>
+
+</div>
+
+<button class="popup-download-btn"
+id="popupDownloadBtn"
+disabled>
+
+🔒 Unlock di 1K Views
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ======================================================
+SCRIPT
+====================================================== -->
+
+<script>
+
+/* ======================================================
+MOBILE MENU
+====================================================== */
+
+const menuToggle =
+document.getElementById(
+'menuToggle'
+);
+
+const navMenu =
+document.getElementById(
+'navMenu'
+);
+
+menuToggle.addEventListener(
+'click',
+() => {
+
+navMenu.classList.toggle(
+'active'
+);
+
+}
+);
+
+/* ======================================================
+SEARCH PROJECT
+====================================================== */
+
+const searchProject =
+document.getElementById(
+'searchProject'
+);
+
+const projectTable =
+document.getElementById(
+'projectTable'
+);
+
+searchProject.addEventListener(
+'keyup',
+() => {
+
+let filter =
+searchProject.value
+.toLowerCase();
+
+let rows =
+projectTable
+.getElementsByTagName('tr');
+
+for(let i = 0; i < rows.length; i++){
+
+let title =
+rows[i]
+.getElementsByTagName('td')[1];
+
+if(title){
+
+let textValue =
+title.textContent ||
+title.innerText;
+
+rows[i].style.display =
+textValue.toLowerCase()
+.indexOf(filter) > -1
+? ''
+: 'none';
+
+}
+
+}
+
+}
+);
+
+/* ======================================================
+YOUTUBE API
+====================================================== */
+
+const apiKey =
+"AIzaSyBJT03o2pl_2wSE54mWpoITz8a1zHrKi3A";
+
+/* ======================================================
+ELEMENT
+====================================================== */
+
+const popupOverlay =
+document.getElementById(
+"popupOverlay"
+);
+
+const closePopup =
+document.getElementById(
+"closePopup"
+);
+
+const popupTitle =
+document.getElementById(
+"popupTitle"
+);
+
+const popupType =
+document.getElementById(
+"popupType"
+);
+
+const popupSize =
+document.getElementById(
+"popupSize"
+);
+
+const popupDate =
+document.getElementById(
+"popupDate"
+);
+
+const popupViews =
+document.getElementById(
+"popupViews"
+);
+
+const popupStatus =
+document.getElementById(
+"popupStatus"
+);
+
+const popupDownloadBtn =
+document.getElementById(
+"popupDownloadBtn"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const progressPercent =
+document.getElementById(
+"progressPercent"
+);
+
+/* ======================================================
+OPEN POPUP
+====================================================== */
+
+const popupButtons =
+document.querySelectorAll(
+".openPopup"
+);
+
+popupButtons.forEach(button => {
+
+button.addEventListener(
+"click",
+async () => {
+
+popupOverlay.classList.add(
+"active"
+);
+
+popupTitle.innerHTML =
+button.dataset.title;
+
+popupType.innerHTML =
+button.dataset.type;
+
+popupSize.innerHTML =
+button.dataset.size;
+
+popupDate.innerHTML =
+button.dataset.date;
+
+popupDownloadBtn.disabled =
+true;
+
+popupDownloadBtn.innerHTML =
+"⏳ Mengecek Views...";
+
+popupStatus.innerHTML =
+"Checking...";
+
+progressFill.style.width =
+"0%";
+
+progressPercent.innerHTML =
+"0%";
+
+const videoId =
+button.dataset.videoid;
+
+const downloadLink =
+button.dataset.link;
+
+try{
+
+const response =
+await fetch(
+
+`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=statistics&key=${apiKey}`
+
+);
+
+const data =
+await response.json();
+
+const views =
+parseInt(
+data.items[0]
+.statistics.viewCount
+);
+
+popupViews.innerHTML =
+`Views : ${views.toLocaleString()}`;
+
+let percent =
+Math.min(
+(views / 1000) * 100,
+100
+);
+
+progressFill.style.width =
+percent + "%";
+
+progressPercent.innerHTML =
+Math.floor(percent) + "%";
+
+if(views >= 1000){
+
+popupStatus.innerHTML =
+"Unlocked ✅";
+
+popupDownloadBtn.disabled =
+false;
+
+popupDownloadBtn.innerHTML =
+"⬇ Download Sekarang";
+
+popupDownloadBtn.onclick =
+() => {
+
+window.open(
+downloadLink,
+"_blank"
+);
+
+};
+
+}else{
+
+popupStatus.innerHTML =
+"Locked 🔒";
+
+popupDownloadBtn.disabled =
+true;
+
+popupDownloadBtn.innerHTML =
+`🔒 Kurang ${
+1000 - views
+} Views`;
+
+}
+
+}catch(error){
+
+popupStatus.innerHTML =
+"Error";
+
+popupDownloadBtn.innerHTML =
+"❌ Gagal mengambil data";
+
+console.log(error);
+
+}
+
+}
+);
+
+});
+
+/* ======================================================
+CLOSE POPUP
+====================================================== */
+
+closePopup.addEventListener(
+"click",
+() => {
+
+popupOverlay.classList.remove(
+"active"
+);
+
+}
+);
+
+popupOverlay.addEventListener(
+"click",
+(e) => {
+
+if(
+e.target === popupOverlay
+){
+
+popupOverlay.classList.remove(
+"active"
+);
+
+}
+
+}
+);
+
+</script>
+
+</body>
+</html>
