@@ -19,6 +19,8 @@ document.getElementById(
 "navMenu"
 );
 
+if(menuToggle){
+
 menuToggle.addEventListener(
 "click",
 () => {
@@ -29,6 +31,8 @@ navMenu.classList.toggle(
 
 }
 );
+
+}
 
 /* ======================================================
 ELEMENT
@@ -50,86 +54,97 @@ document.querySelectorAll(
 );
 
 /* ======================================================
-VIEW CACHE
+CACHE
 ====================================================== */
 
 const viewCache = {};
 
-/* ======================================================
-CURRENT FILTER
-====================================================== */
-
 let currentFilter = "all";
 
 /* ======================================================
-RENDER PROJECT
+GO TO DOWNLOAD
 ====================================================== */
 
-async function renderProjects(data){
+function goToDownload(id){
 
-projectTable.innerHTML = "";
+window.location.href =
+`../DOWNLOAD/download.html?id=${id}`;
 
-for(const project of data){
+}
 
-let views = 0;
+/* ======================================================
+GET YOUTUBE VIEWS
+====================================================== */
+
+async function getViews(videoId){
 
 try{
 
-if(viewCache[project.videoid]){
+if(viewCache[videoId]){
 
-views =
-viewCache[project.videoid];
+return viewCache[videoId];
 
-}else{
+}
 
 const response =
 await fetch(
 
-`https://www.googleapis.com/youtube/v3/videos?id=${project.videoid}&part=statistics&key=${apiKey}`
+`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=statistics&key=${apiKey}`
 
 );
 
 const result =
 await response.json();
 
-views =
+if(
+!result.items ||
+!result.items.length
+){
+
+return 0;
+
+}
+
+const views =
 parseInt(
 result.items[0]
 .statistics.viewCount
 );
 
-viewCache[project.videoid] =
+viewCache[videoId] =
 views;
 
-}
+return views;
 
-}catch{
+}catch(error){
 
-views = 0;
+console.log(error);
 
-}
-
-let statusBadge = "";
-
-if(views >= 1000){
-
-statusBadge =
-`
-<span class="project-info">
-1K Views ✅
-</span>
-`;
-
-}else{
-
-statusBadge =
-`
-<span class="project-info">
-${views} Views
-</span>
-`;
+return 0;
 
 }
+
+}
+
+/* ======================================================
+RENDER PROJECT TABLE
+====================================================== */
+
+async function renderProjects(data){
+
+if(!projectTable) return;
+
+projectTable.innerHTML = "";
+
+for(const project of data){
+
+const views =
+await getViews(
+project.videoid
+);
+
+const unlocked =
+views >= 1000;
 
 projectTable.innerHTML += `
 
@@ -145,17 +160,19 @@ ${project.title}
 
 <td>
 
-<div style="
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-">
+<div class="project-flex">
 
 <span class="project-info">
 ${project.info}
 </span>
 
-${statusBadge}
+<span class="project-info">
+
+${unlocked
+? '1K Views ✅'
+: `${views.toLocaleString()} Views`}
+
+</span>
 
 </div>
 
@@ -163,16 +180,22 @@ ${statusBadge}
 
 <td>
 
-<button class="download-btn openPopup"
+<button
 
-data-title="${project.title}"
-data-type="${project.type}"
-data-size="${project.size}"
-data-date="${project.date}"
-data-videoid="${project.videoid}"
-data-link="${project.link}">
+class="download-btn
+${unlocked
+? 'unlock'
+: 'lock'}"
 
-⬇ Download
+onclick="
+goToDownload(
+'${project.id}'
+)
+">
+
+${unlocked
+? '⬇ Download'
+: '🔒 Locked'}
 
 </button>
 
@@ -184,20 +207,22 @@ data-link="${project.link}">
 
 }
 
-setupPopup();
-
 }
 
 /* ======================================================
-LOAD PROJECT
+LOAD PROJECTS
 ====================================================== */
 
 async function loadProjects(){
+
+if(!projectTable) return;
 
 let filtered =
 [...projects].reverse();
 
 /* SEARCH */
+
+if(searchProject){
 
 const keyword =
 searchProject.value
@@ -212,6 +237,8 @@ project.title
 
 );
 
+}
+
 /* FILTER */
 
 if(currentFilter !== "all"){
@@ -220,45 +247,10 @@ const temp = [];
 
 for(const project of filtered){
 
-let views = 0;
-
-try{
-
-if(viewCache[project.videoid]){
-
-views =
-viewCache[project.videoid];
-
-}else{
-
-const response =
-await fetch(
-
-`https://www.googleapis.com/youtube/v3/videos?id=${project.videoid}&part=statistics&key=${apiKey}`
-
+const views =
+await getViews(
+project.videoid
 );
-
-const result =
-await response.json();
-
-views =
-parseInt(
-result.items[0]
-.statistics.viewCount
-);
-
-viewCache[project.videoid] =
-views;
-
-}
-
-}catch{
-
-views = 0;
-
-}
-
-/* FILTER LOGIC */
 
 if(
 currentFilter === "unlocked"
@@ -278,17 +270,6 @@ temp.push(project);
 
 }
 
-if(
-currentFilter === "edited"
-&& project.info
-.toLowerCase()
-.includes("edit")
-){
-
-temp.push(project);
-
-}
-
 }
 
 filtered = temp;
@@ -300,8 +281,10 @@ renderProjects(filtered);
 }
 
 /* ======================================================
-SEARCH
+SEARCH EVENT
 ====================================================== */
+
+if(searchProject){
 
 searchProject.addEventListener(
 "keyup",
@@ -312,8 +295,10 @@ loadProjects();
 }
 );
 
+}
+
 /* ======================================================
-FILTER BUTTON
+FILTER EVENT
 ====================================================== */
 
 filterButtons.forEach(button => {
@@ -345,52 +330,73 @@ loadProjects();
 });
 
 /* ======================================================
-POPUP ELEMENT
+INIT PROJECT PAGE
 ====================================================== */
 
-const popupOverlay =
+loadProjects();
+
+/* ======================================================
+DOWNLOAD PAGE
+====================================================== */
+
+const downloadTitle =
 document.getElementById(
-"popupOverlay"
+"title"
 );
 
-const closePopup =
-document.getElementById(
-"closePopup"
+if(downloadTitle){
+
+const params =
+new URLSearchParams(
+window.location.search
 );
 
-const popupTitle =
-document.getElementById(
-"popupTitle"
+const id =
+params.get("id");
+
+const project =
+projects.find(
+p => p.id == id
 );
 
-const popupType =
+const viewsText =
 document.getElementById(
-"popupType"
+"views"
 );
 
-const popupSize =
+const type =
 document.getElementById(
-"popupSize"
+"type"
 );
 
-const popupDate =
+const size =
 document.getElementById(
-"popupDate"
+"size"
 );
 
-const popupViews =
+const date =
 document.getElementById(
-"popupViews"
+"date"
 );
 
-const popupStatus =
+const status =
 document.getElementById(
-"popupStatus"
+"status"
 );
 
-const popupDownloadBtn =
+const btn =
 document.getElementById(
-"popupDownloadBtn"
+"downloadBtn"
+);
+
+const fileName =
+document.getElementById(
+"fileName"
+);
+
+const videoId =
+document.getElementById(
+"videoId"
 );
 
 const progressFill =
@@ -404,95 +410,114 @@ document.getElementById(
 );
 
 /* ======================================================
-SETUP POPUP
+SET DATA
 ====================================================== */
 
-function setupPopup(){
+if(project){
 
-const popupButtons =
-document.querySelectorAll(
-".openPopup"
-);
+/* TITLE */
 
-popupButtons.forEach(button => {
+document.title =
+`${project.title} | Tomy Eka RMX`;
 
-button.addEventListener(
-"click",
-async () => {
+downloadTitle.innerHTML =
+project.title;
 
-popupOverlay.classList.add(
-"active"
-);
+/* TYPE */
 
-popupTitle.innerHTML =
-button.dataset.title;
+if(type){
 
-popupType.innerHTML =
-button.dataset.type;
+type.innerHTML =
+project.type;
 
-popupSize.innerHTML =
-button.dataset.size;
+}
 
-popupDate.innerHTML =
-button.dataset.date;
+/* SIZE */
 
-popupDownloadBtn.disabled =
-true;
+if(size){
 
-popupDownloadBtn.innerHTML =
-"⏳ Mengecek Views...";
+size.innerHTML =
+project.size;
 
-popupStatus.innerHTML =
-"Checking...";
+}
 
-progressFill.style.width =
-"0%";
+/* DATE */
 
-progressPercent.innerHTML =
-"0%";
+if(date){
 
-const videoId =
-button.dataset.videoid;
+date.innerHTML =
+project.date;
 
-const downloadLink =
-button.dataset.link;
+}
+
+/* FILE NAME */
+
+if(fileName){
+
+fileName.innerHTML =
+project.title;
+
+}
+
+/* VIDEO ID */
+
+if(videoId){
+
+videoId.innerHTML =
+project.videoid;
+
+}
+
+/* LOAD YOUTUBE VIEW */
+
+loadDownloadViews();
+
+}
+
+/* ======================================================
+LOAD DOWNLOAD VIEWS
+====================================================== */
+
+async function loadDownloadViews(){
 
 try{
-
-let views;
-
-if(viewCache[videoId]){
-
-views =
-viewCache[videoId];
-
-}else{
 
 const response =
 await fetch(
 
-`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=statistics&key=${apiKey}`
+`https://www.googleapis.com/youtube/v3/videos?id=${project.videoid}&part=statistics&key=${apiKey}`
 
 );
 
 const data =
 await response.json();
 
-views =
+if(
+!data.items ||
+!data.items.length
+){
+
+status.innerHTML =
+"Video Tidak Ditemukan";
+
+return;
+
+}
+
+const views =
 parseInt(
 data.items[0]
 .statistics.viewCount
 );
 
-viewCache[videoId] =
-views;
+/* VIEW TEXT */
 
-}
-
-popupViews.innerHTML =
+viewsText.innerHTML =
 `Views : ${views.toLocaleString()}`;
 
-let percent =
+/* PROGRESS */
+
+const percent =
 Math.min(
 (views / 1000) * 100,
 100
@@ -504,22 +529,22 @@ percent + "%";
 progressPercent.innerHTML =
 Math.floor(percent) + "%";
 
+/* UNLOCK */
+
 if(views >= 1000){
 
-popupStatus.innerHTML =
+status.innerHTML =
 "Unlocked ✅";
 
-popupDownloadBtn.disabled =
-false;
+btn.disabled = false;
 
-popupDownloadBtn.innerHTML =
+btn.innerHTML =
 "⬇ Download Sekarang";
 
-popupDownloadBtn.onclick =
-() => {
+btn.onclick = () => {
 
 window.open(
-downloadLink,
+project.link,
 "_blank"
 );
 
@@ -527,13 +552,12 @@ downloadLink,
 
 }else{
 
-popupStatus.innerHTML =
+status.innerHTML =
 "Locked 🔒";
 
-popupDownloadBtn.disabled =
-true;
+btn.disabled = true;
 
-popupDownloadBtn.innerHTML =
+btn.innerHTML =
 `🔒 Kurang ${
 1000 - views
 } Views`;
@@ -542,57 +566,13 @@ popupDownloadBtn.innerHTML =
 
 }catch(error){
 
-popupStatus.innerHTML =
-"Error";
-
-popupDownloadBtn.innerHTML =
-"❌ Gagal mengambil data";
-
 console.log(error);
 
-}
-
-}
-);
-
-});
-
-}
-
-/* ======================================================
-CLOSE POPUP
-====================================================== */
-
-closePopup.addEventListener(
-"click",
-() => {
-
-popupOverlay.classList.remove(
-"active"
-);
-
-}
-);
-
-popupOverlay.addEventListener(
-"click",
-(e) => {
-
-if(
-e.target === popupOverlay
-){
-
-popupOverlay.classList.remove(
-"active"
-);
+status.innerHTML =
+"Error Load Data";
 
 }
 
 }
-);
 
-/* ======================================================
-INIT
-====================================================== */
-
-loadProjects();
+}

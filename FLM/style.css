@@ -196,8 +196,25 @@ SECTION
 }
 
 .section-title h2{
-  font-size:2.6rem;
-  margin-bottom:10px;
+    font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  word-break: break-word;
+}
+
+/* Responsive HP */
+@media (max-width: 768px) {
+  #title {
+    font-size: 22px;
+  }
+}
+
+/* HP kecil */
+@media (max-width: 480px) {
+  #title {
+    font-size: 18px;
+  }
 }
 
 .section-title p{
@@ -633,4 +650,166 @@ FILTER
     #4fd1ff
   );
   border:none;
+}
+
+/* ======================================================
+DOWNLOAD PAGE
+====================================================== */
+
+.download-page{
+width:100%;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+box-sizing:border-box;
+}
+
+.download-card{
+width:100%;
+max-width:500px;
+background:#1a1a1a;
+border-radius:25px;
+padding:30px 25px;
+box-sizing:border-box;
+box-shadow:
+0 0 30px rgba(0,0,0,.4);
+border:1px solid rgba(255,255,255,.05);
+}
+
+.download-card h1{
+font-size:26px;
+line-height:1.5;
+margin-bottom:10px;
+}
+
+#views{
+font-size:15px;
+color:#bdbdbd;
+margin-bottom:20px;
+}
+
+/* INFO */
+
+.download-info{
+background:#111;
+padding:20px;
+border-radius:18px;
+margin-bottom:25px;
+border:1px solid rgba(255,255,255,.05);
+}
+
+.download-info p{
+margin:12px 0;
+display:flex;
+justify-content:space-between;
+gap:10px;
+font-size:15px;
+}
+
+.download-info strong{
+text-align:right;
+color:#fff;
+}
+
+/* ======================================================
+DOWNLOAD PROGRESS
+====================================================== */
+
+.download-progress-area{
+margin-bottom:28px;
+}
+
+.download-progress-text{
+display:flex;
+justify-content:space-between;
+margin-bottom:12px;
+font-size:14px;
+color:#ccc;
+}
+
+.download-progress-bar{
+width:100%;
+height:14px;
+background:rgba(255,255,255,.08);
+border-radius:999px;
+overflow:hidden;
+}
+
+.download-progress-fill{
+width:0%;
+height:100%;
+background:linear-gradient(
+90deg,
+#7c5cff,
+#4fd1ff
+);
+border-radius:999px;
+transition:1s;
+}
+
+/* BUTTON */
+
+#downloadBtn{
+width:100%;
+padding:16px;
+border:none;
+border-radius:18px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+#downloadBtn:disabled{
+background:#2a2a2a;
+color:#888;
+cursor:not-allowed;
+}
+
+#downloadBtn:not(:disabled){
+background:linear-gradient(
+90deg,
+#7c5cff,
+#4fd1ff
+);
+color:#fff;
+box-shadow:
+0 0 20px rgba(124,92,255,.3);
+}
+
+#downloadBtn:not(:disabled):hover{
+transform:translateY(-2px);
+}
+
+/* EXTRA INFO */
+
+.extra-info{
+margin-top:20px;
+font-size:14px;
+line-height:1.8;
+color:#aaa;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.extra-info span{
+color:#fff;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.download-card{
+padding:25px 20px;
+border-radius:20px;
+}
+
+.download-card h1{
+font-size:22px;
+}
+
 }
