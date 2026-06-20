@@ -57,7 +57,7 @@ id: "2",
   type: "ZIP",
   size: "11,20 MB",
   date: "Sabtu, 20 Juni 2026",
-  videoid: "Ej6G-ecGYRxJellG",
+  videoid: "XCk07X5rbdA",
   link: "https://sub4unlock.co/degPti"
 },
 
