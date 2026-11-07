@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin FLM | Tomy Eka RMX</title><link rel="stylesheet" href="admin.css"></head><body>
+<div class="ambient a1"></div><div class="ambient a2"></div>
+<main class="shell">
+  <section id="loginView" class="login-card"><div class="eyebrow">TOMY EKA RMX · CMS</div><h1>Admin Panel</h1><p class="muted">Masuk untuk mengelola project FLM.</p><form id="loginForm"><label>Email admin<input id="email" type="email" autocomplete="username" required placeholder="email admin"></label><label>Password<input id="password" type="password" autocomplete="current-password" required placeholder="Password"></label><button class="primary" type="submit">Masuk</button></form><p id="loginMessage" class="message"></p><p class="tiny">Akun admin dibuat melalui Supabase Authentication, bukan dari halaman publik.</p></section>
+  <section id="appView" hidden>
+    <header class="topbar"><div><div class="eyebrow">CONTENT MANAGEMENT</div><h1>Kelola Project FLM</h1><p class="muted">Tambah dan perbarui project tanpa mengedit data.js.</p></div><button id="logoutBtn" class="ghost">Keluar</button></header>
+    <div class="stats"><article><span>Total project</span><strong id="totalCount">0</strong></article><article><span>Dipublikasikan</span><strong id="publishedCount">0</strong></article><article><span>Draft</span><strong id="draftCount">0</strong></article></div>
+    <div class="layout"><section class="panel"><div class="panel-head"><h2 id="formHeading">Tambah project</h2><button id="resetBtn" class="ghost small">Form baru</button></div>
+      <form id="projectForm" class="project-form">
+        <input id="projectId" type="hidden">
+        <label>Judul project<input id="title" required maxlength="180" placeholder="Nama file project"></label>
+        <div class="two"><label>Info / kategori<input id="info" placeholder="Vocal + FLM"></label><label>Tipe file<input id="type" value="ZIP" placeholder="ZIP"></label></div>
+        <div class="two"><label>Ukuran file<input id="size" placeholder="12 MB"></label><label>Tanggal upload<input id="date" placeholder="Senin, 2 November 2026"></label></div>
+        <label>YouTube Video ID<input id="videoid" required placeholder="ID dari URL video YouTube"></label>
+        <label>Google Shared Drive URL<input id="drive_url" type="url" placeholder="https://drive.google.com/..."><small>Upload file secara manual ke Shared Drive, lalu tempel link berbagi di sini.</small></label>
+        <label>Sub4Unlock URL<input id="safelink_url" type="url" required placeholder="https://sub4unlock.co/...."><small>Buat safelink dari link Google Drive, lalu tempel hasilnya di sini.</small></label>
+        <label>Thumbnail URL (opsional)<input id="thumbnail_url" type="url" placeholder="https://..."></label>
+        <label class="check"><input id="published" type="checkbox" checked> Tampilkan di website</label>
+        <button class="primary" type="submit" id="saveBtn">Simpan project</button><p id="formMessage" class="message"></p>
+      </form>
+    </section>
+    <section class="panel list-panel"><div class="panel-head"><h2>Daftar project</h2><button id="refreshBtn" class="ghost small">Muat ulang</button></div><div id="projectList" class="project-list"><p class="muted">Memuat data...</p></div></section></div>
+    <p class="footer-note">Penyimpanan file: Google Shared Drive · Penghubung download: Sub4Unlock · Timer: 10 detik</p>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../FLM/config.js"></script><script src="admin.js"></script></body></html>
