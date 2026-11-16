@@ -1,128 +1,36 @@
 <!doctype html>
-<html lang="id">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Admin FLM — Tomy Eka RMX</title>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin FLM — Tomy Eka RMX</title>
 <style>
-:root{color-scheme:dark;--bg:#080812;--card:#141426;--line:#2a2a43;--text:#f1f2fb;--muted:#9da3bb;--a:#8b5cf6;--b:#0891b2}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 90% 0%,#211a42,transparent 35%),var(--bg);color:var(--text);font:15px system-ui}
-header{padding:16px max(18px,calc((100% - 1050px)/2));border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:center;background:#090914}
-main{max-width:1050px;margin:auto;padding:24px 18px 60px}.brand{font-weight:900}h1{font-size:1.7rem}h2{font-size:1.1rem;margin-top:0}
-.muted,small{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:17px;margin:14px 0}.stat b{display:block;font-size:1.4rem}
-button,a.btn{border:0;border-radius:10px;padding:10px 14px;font:700 .9rem system-ui;cursor:pointer;text-decoration:none;display:inline-block;background:linear-gradient(120deg,var(--a),var(--b));color:white}
-a.secondary,button.secondary{background:#24243a;border:1px solid var(--line);color:white}
-input,textarea,select{width:100%;background:#090914;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:11px;font:inherit}
-textarea{min-height:220px;resize:vertical;font:13px/1.5 ui-monospace,monospace}
-label{display:block;margin:13px 0 6px;font-weight:650}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.row>*{flex:1}.row button,.row a{flex:0 0 auto}
-.status{padding:11px;border-radius:10px;background:#202038;margin-top:10px;white-space:pre-wrap;overflow-wrap:anywhere}.warn{border:1px solid #92400e;background:#422006;color:#fde68a}
-table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:9px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
-@media(max-width:650px){.grid{grid-template-columns:1fr}header{align-items:flex-start;flex-direction:column}}
-</style>
-</head>
-<body>
-<header><div><div class="brand">🎧 TOMY EKA RMX / ADMIN FLM</div><small>tomyy-id/Official_Website_Tomyeka-RMX · main</small></div><a class="btn secondary" href="https://tomyekarmx.dpdns.org/" target="_blank" rel="noopener">Lihat Website</a></header>
-<main>
-<h1>Dashboard Admin</h1>
-<p class="muted">Mode tanpa Personal Access Token (PAT). Dashboard ini membaca data publik GitHub. Pengajuan perubahan dikirim sebagai GitHub Issue, lalu hanya diterapkan setelah disetujui pemilik repository.</p>
-<div class="grid">
- <div class="card stat"><b id="repoState">Memuat…</b><small>Status repository</small></div>
- <div class="card stat"><b id="branchState">—</b><small>Branch utama</small></div>
- <div class="card stat"><b id="commitState">—</b><small>Commit terakhir</small></div>
-</div>
-<section class="card">
-<h2>Pemantauan repository</h2>
-<div class="row"><button id="refresh">↻ Perbarui status</button><a class="btn secondary" href="https://github.com/tomyy-id/Official_Website_Tomyeka-RMX" target="_blank" rel="noopener">Buka GitHub</a><a class="btn secondary" href="https://github.com/tomyy-id/Official_Website_Tomyeka-RMX/issues" target="_blank" rel="noopener">Lihat pengajuan</a></div>
-<div id="status" class="status">Memeriksa GitHub…</div>
-<div id="commits"></div>
-</section>
-<section class="card">
-<h2>Ajukan perubahan konfigurasi / file</h2>
-<p class="muted">Isi konten lalu buat Issue. Kamu harus masuk ke akun GitHub untuk mengirim pengajuan. Perubahan belum diterapkan sampai pemilik repository memberi label <b>admin-approved</b>.</p>
-<label for="kind">Jenis pengajuan</label>
-<select id="kind"><option value="EDIT_CONFIG">Edit pengaturan-data.js</option><option value="UPLOAD">Upload file kecil ke folder assets/</option></select>
-<label for="path">Path tujuan</label>
-<input id="path" value="pengaturan-data.js" autocomplete="off">
-<label for="file">Pilih file (opsional untuk upload)</label>
-<input id="file" type="file">
-<label for="content">Isi file / konten baru</label>
-<textarea id="content" placeholder="Untuk edit pengaturan-data.js, tempel seluruh isi file terbaru. Untuk upload, pilih file kecil atau masukkan isi teks."></textarea>
-<label for="message">Pesan commit</label>
-<input id="message" value="Update melalui pengajuan admin FLM">
-<div class="row" style="margin-top:14px"><button id="makeIssue">Buat pengajuan di GitHub</button><button id="clear" class="secondary">Bersihkan form</button></div>
-<div id="formStatus" class="status">Batas upload melalui form: 8 KB per file. Untuk file lebih besar, gunakan halaman upload GitHub secara langsung.</div>
-</section>
-<section class="card">
-<h2>Upload file besar / kelola file langsung</h2>
-<p class="muted">Untuk file gambar, audio, atau video berukuran besar, gunakan GitHub web. Setelah login GitHub, unggah ke folder <b>assets/</b> dan buat commit di branch main.</p>
-<a class="btn" href="https://github.com/tomyy-id/Official_Website_Tomyeka-RMX/upload/main/assets" target="_blank" rel="noopener">Buka halaman upload GitHub</a>
-</section>
-<section class="card warn">
-<b>Catatan keamanan penting</b>
-<ul>
-<li>Halaman GitHub Pages bersifat publik; halaman ini bukan sistem autentikasi privat.</li>
-<li>Tidak ada token atau secret GitHub yang disimpan di browser.</li>
-<li>Workflow hanya memproses Issue jika label <b>admin-approved</b> ditambahkan oleh pemilik repository <b>tomyy-id</b>.</li>
-<li>Workflow hanya mengizinkan perubahan ke <b>pengaturan-data.js</b> atau file yang diizinkan di folder <b>assets/</b>.</li>
-</ul>
-</section>
+:root{color-scheme:dark;--bg:#080812;--card:#141426;--line:#2a2a43;--text:#f1f2fb;--muted:#9da3bb}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 90% 0%,#211a42,transparent 35%),var(--bg);color:var(--text);font:15px system-ui}header{padding:16px;display:flex;justify-content:space-between;gap:12px;background:#090914;border-bottom:1px solid var(--line)}main{max-width:900px;margin:auto;padding:22px 16px 55px}.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:17px;margin:14px 0}.muted,small{color:var(--muted)}button,a.btn{border:0;border-radius:10px;padding:11px 14px;font:700 .9rem system-ui;cursor:pointer;text-decoration:none;display:inline-block;background:linear-gradient(120deg,#8b5cf6,#0891b2);color:white}input,textarea,select{width:100%;background:#090914;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:11px;font:inherit}textarea{min-height:170px;font:13px/1.5 monospace;resize:vertical}label{display:block;margin:13px 0 6px;font-weight:650}.status{padding:11px;border-radius:10px;background:#202038;margin-top:10px;white-space:pre-wrap;overflow-wrap:anywhere}.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:1}@media(max-width:600px){header{display:block}}
+</style></head><body>
+<header><b>🎧 TOMY EKA RMX / ADMIN FLM</b><a class="btn" href="https://tomyekarmx.dpdns.org/">Lihat Website</a></header>
+<main><h1>Dashboard Admin</h1><p class="muted">Mode tanpa PAT. Base64 dibuat otomatis. Pengajuan dikirim sebagai GitHub Issue dan hanya diterapkan setelah disetujui pemilik repository.</p>
+<section class="card"><h2>Pemantauan repository</h2><div id="repoStatus" class="status">Memeriksa GitHub…</div><div class="row"><button id="refresh">Perbarui status</button><a class="btn" href="https://github.com/tomyy-id/Official_Website_Tomyeka-RMX/issues">Lihat pengajuan</a></div></section>
+<section class="card"><h2>Ajukan perubahan konfigurasi / file</h2>
+<label for="kind">Jenis pengajuan</label><select id="kind"><option value="EDIT_CONFIG">Edit pengaturan-data.js</option><option value="UPLOAD">Upload file kecil ke folder assets/</option></select>
+<label for="path">Path tujuan</label><input id="path" value="pengaturan-data.js">
+<label for="file">Pilih file (opsional)</label><input id="file" type="file">
+<label for="content">Isi file / konten baru</label><textarea id="content" placeholder="Tempel seluruh isi file, atau pilih file di atas."></textarea>
+<label for="message">Pesan commit</label><input id="message" value="Update melalui pengajuan admin FLM">
+<button id="makeIssue" style="margin-top:14px">Buat pengajuan di GitHub</button><div id="formStatus" class="status">Isi file terlebih dahulu. Base64 akan dibuat otomatis.</div>
+<label for="issueDraft">Draf Issue (Base64 otomatis)</label><textarea id="issueDraft" readonly placeholder="Draf akan muncul di sini setelah tombol di atas ditekan."></textarea>
+<button id="copyDraft" style="margin-top:10px;background:#303047">Salin isi Issue</button>
+<p class="muted">Setelah GitHub terbuka, tempel isi yang disalin ke kolom deskripsi, lalu tekan Submit new issue.</p></section>
+<section class="card"><h2>Upload file besar</h2><p class="muted">Untuk file besar, gunakan GitHub web.</p><a class="btn" href="https://github.com/tomyy-id/Official_Website_Tomyeka-RMX/upload/main/assets">Buka halaman upload GitHub</a></section>
+<section class="card"><b>Catatan keamanan</b><p class="muted">Halaman GitHub Pages bersifat publik dan bukan sistem login privat. Jangan memasukkan password, API secret, atau token di sini.</p></section>
 </main>
 <script>
-const OWNER='tomyy-id',REPO='Official_Website_Tomyeka-RMX',BRANCH='main';
-let selectedFileIsBase64=false;
-const $=s=>document.querySelector(s);
-const api=`https://api.github.com/repos/${OWNER}/${REPO}`;
-function status(t,ok=false){$('#status').textContent=t;$('#status').style.color=ok?'#86efac':''}
-async function refresh(){
- $('#repoState').textContent='Memuat…';
- try{
-  const [r,c]=await Promise.all([
-   fetch(api,{headers:{Accept:'application/vnd.github+json'}}),
-   fetch(`${api}/commits?sha=${BRANCH}&per_page=5`,{headers:{Accept:'application/vnd.github+json'}})
-  ]);
-  if(!r.ok)throw Error(`GitHub API ${r.status}`);
-  const repo=await r.json(), commits=c.ok?await c.json():[];
-  $('#repoState').textContent=repo.private?'Private':'Publik';
-  $('#branchState').textContent=repo.default_branch||BRANCH;
-  $('#commitState').textContent=commits[0]?.commit?.author?.date?new Date(commits[0].commit.author.date).toLocaleDateString('id-ID'):'—';
-  status(`Repository: ${repo.full_name}\nBranch default: ${repo.default_branch}\nTerakhir diperbarui: ${new Date(repo.updated_at).toLocaleString('id-ID')}`,true);
-  $('#commits').innerHTML='<h3>Commit terbaru</h3><table><tbody>'+commits.map(x=>`<tr><td>${esc(x.commit.message.split('\\n')[0])}<br><small>${esc(x.commit.author?.name||'')} · ${new Date(x.commit.author?.date||'').toLocaleString('id-ID')}</small></td><td><a href="${x.html_url}" target="_blank" rel="noopener">Lihat</a></td></tr>`).join('')+'</tbody></table>';
- }catch(e){$('#repoState').textContent='Tidak tersedia';status(e.message)}
-}
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-$('#kind').onchange=()=>{$('#path').value=$('#kind').value==='EDIT_CONFIG'?'pengaturan-data.js':'assets/namafile.ext';$('#file').value='';$('#content').value='';selectedFileIsBase64=false};
-$('#content').oninput=()=>{selectedFileIsBase64=false};
-$('#file').onchange=async()=>{
- const f=$('#file').files[0];if(!f)return;
- if(f.size>45*1024){$('#formStatus').textContent='File lebih dari 45 KB. Gunakan upload GitHub langsung untuk file ini.';$('#file').value='';return}
- const b=new Uint8Array(await f.arrayBuffer());let s='';for(let i=0;i<b.length;i++)s+=String.fromCharCode(b[i]);
- $('#content').value=btoa(s);selectedFileIsBase64=true;$('#path').value=$('#kind').value==='EDIT_CONFIG'?'pengaturan-data.js':`assets/${f.name}`;
- $('#formStatus').textContent=`File ${f.name} siap. Konten diubah menjadi Base64 untuk pengajuan.`;
-};
-$('#makeIssue').onclick=async()=>{
- const kind=$('#kind').value,path=$('#path').value.trim(),content=$('#content').value,message=$('#message').value.trim()||'Update melalui admin FLM';
- if(!path||!content){$('#formStatus').textContent='Path dan isi file wajib diisi.';return}
- if(kind==='EDIT_CONFIG'&&path!=='pengaturan-data.js'){ $('#formStatus').textContent='Edit konfigurasi hanya boleh menargetkan pengaturan-data.js.';return}
- if(kind==='UPLOAD'&&!path.startsWith('assets/')){ $('#formStatus').textContent='Upload hanya boleh ke folder assets/.';return}
- const bytes=new TextEncoder().encode(content);
- let binary='';for(let i=0;i<bytes.length;i+=0x8000)binary+=String.fromCharCode(...bytes.subarray(i,i+0x8000));
- const payload=selectedFileIsBase64?content.replace(/\\s/g,''):btoa(binary);
- const body=[
-  '### Jenis perubahan',kind,
-  '### Path tujuan',path,
-  '### Format konten','base64',
-  '### Isi file (Base64)',payload,
-  '### Pesan commit',message,
-  '### Catatan','Dibuat melalui dashboard admin FLM tanpa PAT.'
- ].join('\n\n');
- $('#issueDraft').value=body;
- const title=kind==='EDIT_CONFIG'?'Permintaan edit pengaturan-data.js':`Permintaan upload ${path}`;
- const url=`https://github.com/${OWNER}/${REPO}/issues/new?title=${encodeURIComponent(title)}&labels=admin-request`;
- $('#formStatus').textContent='Draf Issue sudah dibuat. Salin isi Issue, lalu tempel di kolom deskripsi GitHub yang terbuka.';
- try{await navigator.clipboard.writeText(body);$('#formStatus').textContent='Isi Issue berhasil disalin. Tempel (Paste) ke kolom deskripsi GitHub, lalu Submit new issue.';}catch(e){$('#formStatus').textContent='Clipboard otomatis tidak tersedia. Tekan tombol Salin isi Issue, lalu tempel di GitHub.';}
- window.open(url,'_blank','noopener');
-};
-$('#copyDraft').onclick=async()=>{if(!$('#issueDraft').value){$('#formStatus').textContent='Buat draf Issue terlebih dahulu.';return}try{await navigator.clipboard.writeText($('#issueDraft').value);$('#formStatus').textContent='Isi Issue berhasil disalin. Tempel di kolom deskripsi GitHub.'}catch(e){$('#issueDraft').focus();$('#issueDraft').select();$('#formStatus').textContent='Pilih teks draf, lalu salin secara manual.'}};
-$('#clear').onclick=()=>{selectedFileIsBase64=false;$('#kind').value='EDIT_CONFIG';$('#path').value='pengaturan-data.js';$('#file').value='';$('#content').value='';$('#issueDraft').value='';$('#message').value='Update melalui pengajuan admin FLM';$('#formStatus').textContent='Form dibersihkan.'};
+const OWNER='tomyy-id',REPO='Official_Website_Tomyeka-RMX',API='https://api.github.com/repos/tomyy-id/Official_Website_Tomyeka-RMX';
+const $=s=>document.querySelector(s);let fileIsBase64=false;
+async function refresh(){try{const r=await fetch(API);if(!r.ok)throw Error('GitHub API '+r.status);const j=await r.json();$('#repoStatus').textContent='Repository: '+j.full_name+'\\nBranch: '+j.default_branch+'\\nStatus: dapat dibaca';}catch(e){$('#repoStatus').textContent='Tidak dapat memeriksa repository: '+e.message;}}
+$('#kind').onchange=()=>{$('#path').value=$('#kind').value==='EDIT_CONFIG'?'pengaturan-data.js':'assets/namafile.ext';$('#file').value='';$('#content').value='';$('#issueDraft').value='';fileIsBase64=false;};
+$('#content').oninput=()=>fileIsBase64=false;
+$('#file').onchange=async()=>{const f=$('#file').files[0];if(!f)return;if(f.size>45*1024){$('#formStatus').textContent='File lebih dari 45 KB. Gunakan upload GitHub langsung.';$('#file').value='';return;}const b=new Uint8Array(await f.arrayBuffer());let s='';for(let i=0;i<b.length;i++)s+=String.fromCharCode(b[i]);$('#content').value=btoa(s);fileIsBase64=true;if($('#kind').value==='UPLOAD')$('#path').value='assets/'+f.name;$('#formStatus').textContent='File siap; konten Base64 dibuat otomatis.';};
+function b64utf8(s){const a=new TextEncoder().encode(s);let b='';for(let i=0;i<a.length;i+=0x8000)b+=String.fromCharCode(...a.subarray(i,i+0x8000));return btoa(b);}
+$('#makeIssue').onclick=async()=>{const kind=$('#kind').value,path=$('#path').value.trim(),content=$('#content').value,message=$('#message').value.trim()||'Update melalui admin FLM';if(!content||!path){$('#formStatus').textContent='Isi file dan path wajib diisi.';return;}if(kind==='EDIT_CONFIG'&&path!=='pengaturan-data.js'){ $('#formStatus').textContent='Path edit harus pengaturan-data.js.';return;}if(kind==='UPLOAD'&&!path.startsWith('assets/')){ $('#formStatus').textContent='Path upload harus di folder assets/.';return;}
+const payload=fileIsBase64?content.replace(/\\s/g,''):b64utf8(content);const body=['### Jenis perubahan',kind,'### Path tujuan',path,'### Format konten','base64','### Isi file (Base64)',payload,'### Pesan commit',message,'### Catatan','Dibuat melalui dashboard admin FLM tanpa PAT.'].join('\\n\\n');$('#issueDraft').value=body;
+const title=kind==='EDIT_CONFIG'?'Permintaan edit pengaturan-data.js':'Permintaan upload '+path;const url='https://github.com/'+OWNER+'/'+REPO+'/issues/new?title='+encodeURIComponent(title)+'&labels=admin-request';const win=window.open(url,'_blank');$('#formStatus').textContent='Base64 sudah dibuat. Salin isi Issue di bawah lalu tempel pada kolom deskripsi GitHub.';
+try{await navigator.clipboard.writeText(body);$('#formStatus').textContent='Base64 sudah dibuat dan disalin. Tempel (Paste) pada kolom deskripsi GitHub.';}catch(e){$('#formStatus').textContent='Base64 sudah dibuat. Tekan tombol Salin isi Issue.';}if(!win)$('#formStatus').textContent+=' Jika tab tidak terbuka, izinkan pop-up browser.';};
+$('#copyDraft').onclick=async()=>{const v=$('#issueDraft').value;if(!v){$('#formStatus').textContent='Buat draf terlebih dahulu.';return;}try{await navigator.clipboard.writeText(v);$('#formStatus').textContent='Isi Issue disalin. Tempel di kolom deskripsi GitHub.';}catch(e){$('#issueDraft').focus();$('#issueDraft').select();$('#formStatus').textContent='Teks dipilih. Gunakan Salin dari menu browser, lalu tempel di GitHub.';}};
 $('#refresh').onclick=refresh;refresh();
-</script>
-</body></html>
+</script></body></html>
