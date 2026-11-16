@@ -1,0 +1,37 @@
+name: Apply approved FLM admin request
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  apply-request:
+    if: github.event.label.name == 'admin-approved' && github.event.sender.login == 'tomyy-id'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Apply validated request
+        env:
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
+        run: python3 scripts/apply_admin_issue.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- pengaturan-data.js assets/
+          if git diff --cached --quiet; then
+            echo "Tidak ada perubahan untuk disimpan."
+            exit 0
+          fi
+          git commit -m "Apply approved FLM admin request"
+          git push origin HEAD:main
