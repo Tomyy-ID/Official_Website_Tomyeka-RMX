@@ -1,34 +1,864 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07070d">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Website Tomy Eka RMX sedang dalam pemeliharaan.">
-  <title>Sedang Maintenance – Tomy Eka RMX</title>
-  <style>
-    :root{color-scheme:dark;--bg:#07070d;--bg2:#0d0d17;--card:#12121e;--line:#26263b;--text:#eceef6;--muted:#9aa0b8;--violet:#7c3aed;--cyan:#22d3ee;--grad:linear-gradient(135deg,#7c3aed,#06b6d4)}
-    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:radial-gradient(800px 450px at 85% 0,rgba(124,58,237,.22),transparent 60%),radial-gradient(700px 400px at 0 100%,rgba(6,182,212,.12),transparent 60%),var(--bg)}
-    .wrap{width:min(100%,680px);text-align:center}.brand{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;font-weight:800;font-size:1.12rem;color:#fff}.disc{width:38px;height:38px;border-radius:50%;background:conic-gradient(#1b1b2c,#555577,#1b1b2c,#555577,#1b1b2c);position:relative;box-shadow:0 0 0 2px #2c2c44,0 0 18px rgba(124,58,237,.45)}.disc:after{content:"";position:absolute;inset:13px;border-radius:50%;background:var(--grad)}.brand small{display:block;color:var(--muted);font-size:.65rem;letter-spacing:.15em;text-align:left}.card{padding:clamp(28px,6vw,54px) clamp(22px,5vw,44px);border:1px solid var(--line);border-radius:26px;background:linear-gradient(150deg,rgba(124,58,237,.16),rgba(13,13,23,.96) 55%),var(--bg2);box-shadow:0 18px 60px rgba(0,0,0,.4)}.icon{width:82px;height:82px;margin:0 auto 22px;border-radius:24px;display:grid;place-items:center;font-size:2.5rem;background:rgba(124,58,237,.16);border:1px solid rgba(167,139,250,.28)}.eyebrow{color:var(--cyan);font-size:.76rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}h1{font-size:clamp(1.8rem,6vw,2.8rem);line-height:1.15;margin:12px 0}p{color:#c3c8dc;line-height:1.75;margin:12px auto;max-width:510px}.status{display:inline-flex;align-items:center;gap:9px;margin:20px 0 8px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:#ddd6fe;background:rgba(124,58,237,.12);font-size:.86rem}.dot{width:8px;height:8px;border-radius:50%;background:#a78bfa;box-shadow:0 0 12px #a78bfa}.btn{display:inline-flex;justify-content:center;align-items:center;margin-top:20px;padding:12px 20px;border-radius:12px;background:var(--grad);color:white;text-decoration:none;font-weight:750}.btn:hover{filter:brightness(1.12)}.foot{margin-top:22px;color:var(--muted);font-size:.82rem}
-    @media(prefers-reduced-motion:no-preference){.icon{animation:pulse 2.5s ease-in-out infinite}@keyframes pulse{50%{transform:translateY(-5px);box-shadow:0 12px 30px rgba(124,58,237,.2)}}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tomy Eka RMX – Project FLM DJ Trap & DJ Sholawat</title>
+<meta name="description" content="Website resmi Tomy Eka RMX: download project FLM DJ Trap dan DJ Sholawat, lihat profil channel YouTube, dan order DJ lewat WhatsApp Business.">
+<meta name="theme-color" content="#07070d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tomy Eka RMX – Project FLM DJ Trap & DJ Sholawat">
+<meta property="og:description" content="Download project FLM, lihat profil channel, dan order DJ via WhatsApp Business.">
+<meta property="og:locale" content="id_ID">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎧</text></svg>">
+
+<style>
+/* =========================================================
+   BLOK CSS 1 — DASAR & VARIABEL
+   ========================================================= */
+:root{
+  --bg:#07070d; --bg2:#0d0d17; --card:#12121e; --card2:#181828; --line:#26263b;
+  --text:#eceef6; --muted:#9aa0b8;
+  --violet:#7c3aed; --violet2:#a78bfa; --cyan:#22d3ee;
+  --gold:#f5b301; --gold2:#ffd166; --green:#22c55e; --red:#ef4444;
+  --grad:linear-gradient(135deg,#7c3aed,#06b6d4);
+  --grad-gold:linear-gradient(135deg,#f5b301,#ff8a00);
+  --radius:16px; --max:1180px;
+  --shadow:0 10px 40px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--text);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased;
+  background:radial-gradient(900px 500px at 85% -5%,rgba(124,58,237,.22),transparent 60%),radial-gradient(700px 420px at -5% 15%,rgba(6,182,212,.14),transparent 60%),var(--bg);
+  background-attachment:fixed}
+a{color:var(--violet2);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.container{max-width:var(--max);margin:0 auto;padding:0 20px}
+.page{padding:36px 0 56px;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+h1,h2,h3{line-height:1.25;letter-spacing:-.01em}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+.page-title{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:8px}
+.page-sub{color:var(--muted);max-width:640px;margin-bottom:28px}
+.section-title{font-size:1.4rem;margin:44px 0 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.section-title a{font-size:.9rem;font-weight:600}
+
+/* =========================================================
+   BLOK CSS 2 — HEADER & NAVIGASI
+   ========================================================= */
+.site-header{position:sticky;top:0;z-index:60;background:rgba(7,7,13,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.15rem;color:#fff;letter-spacing:-.01em}
+.brand:hover{text-decoration:none}
+.brand small{display:block;font-size:.68rem;font-weight:600;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;line-height:1.1}
+.disc{width:38px;height:38px;border-radius:50%;background:conic-gradient(from 30deg,#1b1b2c,#3a3a58,#1b1b2c,#3a3a58,#1b1b2c);position:relative;box-shadow:0 0 0 2px #2c2c44,0 0 18px rgba(124,58,237,.5);flex:none}
+.disc::after{content:"";position:absolute;inset:13px;border-radius:50%;background:var(--grad)}
+.main-nav ul{display:flex;align-items:center;gap:4px;list-style:none}
+.main-nav a{display:block;padding:8px 14px;border-radius:10px;color:var(--text);font-weight:600;font-size:.94rem}
+.main-nav a:hover,.main-nav a.active{background:rgba(124,58,237,.18);color:#fff;text-decoration:none}
+.main-nav a.nav-order{background:var(--grad-gold);color:#1a1100;font-weight:800;margin-left:8px;box-shadow:0 4px 18px rgba(245,179,1,.35)}
+.main-nav a.nav-order:hover,.main-nav a.nav-order.active{filter:brightness(1.08);color:#1a1100}
+.nav-toggle{display:none;background:transparent;border:1px solid var(--line);border-radius:10px;width:44px;height:44px;font-size:1.3rem;color:var(--text);cursor:pointer}
+
+/* =========================================================
+   BLOK CSS 3 — TOMBOL, BADGE, PROGRESS
+   ========================================================= */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--grad);color:#fff;border:0;border-radius:12px;padding:12px 22px;font-weight:700;font-size:.97rem;cursor:pointer;font-family:inherit;transition:transform .15s,filter .15s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.1);text-decoration:none}
+.btn-gold{background:var(--grad-gold);color:#1a1100}
+.btn-red{background:#dc2626}
+.btn-green{background:linear-gradient(135deg,#16a34a,#22c55e);color:#04210f}
+.btn-line{background:transparent;border:1.5px solid var(--line);color:var(--text)}
+.btn-line:hover{border-color:var(--violet2)}
+.btn-sm{padding:9px 16px;font-size:.88rem;border-radius:10px}
+.btn-block{width:100%}
+.btn[disabled]{background:#23233a;color:#7b8099;cursor:not-allowed;transform:none;filter:none}
+.tag{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+.t-trap{background:rgba(34,211,238,.14);color:#67e8f9}
+.t-sholawat{background:rgba(34,197,94,.14);color:#86efac}
+.bar{height:8px;background:#23233a;border-radius:999px;overflow:hidden}
+.bar>i{display:block;height:100%;background:var(--grad);border-radius:999px;transition:width .7s ease}
+.bar.done>i{background:linear-gradient(90deg,#16a34a,#4ade80)}
+.bar.big{height:14px}
+
+/* =========================================================
+   BLOK CSS 4 — HERO & HOME
+   ========================================================= */
+.hero{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:24px;padding:64px 36px 90px;text-align:center;background:linear-gradient(160deg,rgba(124,58,237,.22),rgba(13,13,23,.9) 55%),var(--bg2);box-shadow:var(--shadow)}
+.hero h1{font-size:clamp(2rem,5.2vw,3.4rem);margin-bottom:14px;background:linear-gradient(90deg,#fff,#c4b5fd 60%,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:620px;margin:0 auto 28px;color:#c3c8dc;font-size:1.08rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;position:relative;z-index:2}
+.eq{position:absolute;left:0;right:0;bottom:0;height:64px;display:flex;align-items:flex-end;gap:5px;padding:0 14px;opacity:.55;pointer-events:none}
+.eq i{flex:1;height:15%;background:var(--grad);border-radius:4px 4px 0 0;animation:eq 1.1s ease-in-out infinite alternate}
+@keyframes eq{from{height:12%}to{height:100%}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-top:22px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;text-align:center}
+.stat b{display:block;font-size:1.7rem;color:#fff}
+.stat span{font-size:.84rem;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.step .n{width:36px;height:36px;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-weight:800;margin-bottom:12px}
+.step h3{font-size:1.05rem;margin-bottom:6px}
+.step p{color:var(--muted);font-size:.93rem}
+.cta-band{margin-top:44px;border-radius:22px;padding:34px;text-align:center;background:linear-gradient(135deg,rgba(124,58,237,.3),rgba(6,182,212,.18));border:1px solid var(--line)}
+.cta-band h2{font-size:1.5rem;margin-bottom:8px}
+.cta-band p{color:#c3c8dc;margin-bottom:18px}
+
+/* =========================================================
+   BLOK CSS 5 — DAFTAR PROJECT & DOWNLOAD
+   ========================================================= */
+.toolbar{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+.input,.select,.textarea{background:var(--card);border:1px solid var(--line);color:var(--text);border-radius:12px;padding:12px 14px;font-size:1rem;font-family:inherit;width:100%}
+.input:focus,.select:focus,.textarea:focus{border-color:var(--violet2);outline:2px solid rgba(124,58,237,.25)}
+.textarea{min-height:110px;resize:vertical}
+.toolbar .input{flex:1;min-width:200px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:999px;padding:7px 16px;font-size:.88rem;font-weight:600;cursor:pointer;font-family:inherit}
+.chip:hover{border-color:var(--violet2)}
+.chip.active{background:var(--grad);border-color:transparent;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s,box-shadow .2s}
+.pcard:hover{transform:translateY(-4px);border-color:#3b3b5a;box-shadow:var(--shadow)}
+.pthumb{position:relative;display:block;background:#000}
+.timg{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.thumb-fallback{display:grid;place-items:center;aspect-ratio:16/9;background:var(--grad);font-size:2.4rem}
+.lockb{position:absolute;top:10px;left:10px;font-size:.74rem;font-weight:800;padding:5px 11px;border-radius:999px;background:rgba(0,0,0,.72);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.15)}
+.lockb.open{background:rgba(22,163,74,.85);border-color:transparent}
+.pbody{padding:16px 18px 18px;display:flex;flex-direction:column;gap:9px;flex:1}
+.pbody h3{font-size:1.04rem}
+.pbody h3 a{color:var(--text)}
+.pmeta{font-size:.82rem;color:var(--muted)}
+.pviews{font-size:.84rem;color:var(--muted);display:flex;justify-content:space-between}
+.pbody .btn{margin-top:auto}
+.empty{border:1px dashed var(--line);border-radius:var(--radius);padding:34px;text-align:center;color:var(--muted)}
+.breadcrumb{font-size:.86rem;color:var(--muted);margin-bottom:16px}
+.breadcrumb a{color:var(--muted)}
+.dl{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}
+.dl .pthumb{border-radius:16px;overflow:hidden}
+.play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(transparent 40%,rgba(0,0,0,.55))}
+.play span{width:62px;height:62px;border-radius:50%;background:rgba(220,38,38,.92);display:grid;place-items:center;font-size:1.5rem;box-shadow:0 8px 28px rgba(0,0,0,.5)}
+.info{display:grid;gap:0;margin:14px 0 18px}
+.info div{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.94rem}
+.info dt{color:var(--muted)}
+.info dd{text-align:right;font-weight:600;word-break:break-all}
+.info code{background:#0b0b14;border:1px solid var(--line);padding:2px 8px;border-radius:6px;font-size:.88rem;color:var(--cyan)}
+.viewbox{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
+.viewbox .row{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:8px;gap:10px;flex-wrap:wrap}
+.viewbox .hint{font-size:.85rem;color:var(--muted);margin-top:10px}
+.dl-actions{display:grid;gap:10px}
+.note{font-size:.8rem;color:var(--muted);margin-top:12px}
+
+/* =========================================================
+   BLOK CSS 6 — PROFIL, TENTANG, KONTAK
+   ========================================================= */
+.profile{display:grid;grid-template-columns:260px minmax(0,1fr);gap:30px;align-items:start}
+.avatar{width:100%;aspect-ratio:1;border-radius:24px;background:var(--grad);display:grid;place-items:center;font-size:4.2rem;font-weight:800;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.panel h2{font-size:1.25rem;margin-bottom:10px}
+.panel p{color:#c3c8dc;margin-bottom:12px}
+.skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.skills span{background:rgba(124,58,237,.16);color:#c4b5fd;border-radius:999px;padding:5px 14px;font-size:.84rem;font-weight:600}
+.timeline{position:relative;margin:8px 0 0 10px;padding-left:28px;border-left:2px solid var(--line)}
+.tl{position:relative;margin-bottom:24px}
+.tl::before{content:"";position:absolute;left:-37px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--grad);box-shadow:0 0 0 4px var(--bg)}
+.tl h3{font-size:1.02rem;margin-bottom:4px}
+.tl p{color:var(--muted);font-size:.94rem;margin:0}
+details.faq{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:12px}
+details.faq summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+details.faq summary::after{content:"+";color:var(--cyan);font-size:1.3rem;line-height:1}
+details.faq[open] summary::after{content:"–"}
+details.faq p{color:#c3c8dc;margin-top:10px;font-size:.96rem}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:26px}
+.ccard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:block;color:var(--text)}
+.ccard:hover{border-color:var(--violet2);text-decoration:none}
+.ccard .ic{font-size:1.7rem}
+.ccard strong{display:block;margin-top:6px}
+.ccard span{font-size:.88rem;color:var(--muted)}
+.ccard.wa{background:linear-gradient(135deg,rgba(22,163,74,.25),rgba(34,197,94,.08));border-color:rgba(34,197,94,.4)}
+.field{margin-bottom:16px}
+.field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+
+/* =========================================================
+   BLOK CSS 7 — ORDER
+   ========================================================= */
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.price{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:10px;position:relative}
+.price.pop{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 14px 40px rgba(245,179,1,.12)}
+.price .pill{position:absolute;top:-12px;right:18px;background:var(--grad-gold);color:#1a1100;font-size:.72rem;font-weight:800;padding:4px 12px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase}
+.price .ic{font-size:2rem}
+.price h3{font-size:1.15rem}
+.price .amt{font-size:2rem;font-weight:800;color:var(--gold2);letter-spacing:-.02em}
+.price ul{list-style:none;color:#c3c8dc;font-size:.93rem;display:grid;gap:6px;margin:4px 0 8px}
+.price ul li::before{content:"✓ ";color:var(--green);font-weight:800}
+.price .btn{margin-top:auto}
+.flm{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:26px;background:linear-gradient(135deg,rgba(124,58,237,.18),rgba(13,13,23,.9));border:1px solid var(--line);border-radius:22px;padding:28px}
+.flm .amt{font-size:2.3rem;font-weight:800;color:var(--gold2)}
+
+/* =========================================================
+   BLOK CSS 8 — FOOTER
+   ========================================================= */
+.site-footer{border-top:1px solid var(--line);background:var(--bg2);padding:40px 0 24px;margin-top:20px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px;margin-bottom:26px}
+.site-footer p{color:var(--muted);font-size:.92rem;max-width:400px;margin-top:10px}
+.site-footer h4{font-size:.95rem;margin-bottom:12px}
+.site-footer ul{list-style:none;display:grid;gap:8px}
+.site-footer a{color:var(--muted);font-size:.92rem}
+.site-footer a:hover{color:#fff}
+.copy{border-top:1px solid var(--line);padding-top:18px;text-align:center;font-size:.84rem;color:var(--muted)}
+
+/* =========================================================
+   BLOK CSS 9 — RESPONSIF & AKSESIBILITAS
+   ========================================================= */
+@media (max-width:900px){
+  .dl,.flm,.two{grid-template-columns:1fr}
+  .profile{grid-template-columns:1fr}
+  .avatar{max-width:220px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:820px){
+  .nav-toggle{display:block}
+  .main-nav{display:none;position:absolute;top:70px;left:0;right:0;background:rgba(7,7,13,.97);border-bottom:1px solid var(--line);padding:10px 20px 18px}
+  .main-nav.open{display:block}
+  .main-nav ul{flex-direction:column;align-items:stretch}
+  .main-nav a.nav-order{margin:6px 0 0;text-align:center}
+}
+@media (max-width:560px){
+  .hero{padding:44px 20px 80px}
+  .footer-grid{grid-template-columns:1fr}
+  .dl{padding:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .eq i{height:35%}
+  html{scroll-behavior:auto}
+}
+
+/* =========================================================
+   FITUR BARU — tambahkan blok CSS baru DI BAWAH garis ini.
+   Jangan mengubah blok di atasnya.
+   ========================================================= */
+
+/* =========================================================
+   BLOK CSS 10 — TUTORIAL DOWNLOAD (subs4unlock → safelink → Google Drive)
+   ========================================================= */
+.tutorial{margin-top:22px}
+.tutorial .tut-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px}
+.tutorial .tut-head h2{margin:0}
+.tut-state{font-size:.78rem;font-weight:800;padding:5px 12px;border-radius:999px;letter-spacing:.04em}
+.tut-state.open{background:rgba(34,197,94,.16);color:#86efac}
+.tut-state.locked{background:rgba(245,179,1,.16);color:var(--gold2)}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:12px 0 20px}
+.chain span{background:rgba(124,58,237,.18);border:1px solid var(--line);padding:6px 14px;border-radius:999px;font-weight:700;font-size:.88rem}
+.chain i{color:var(--cyan);font-style:normal;font-weight:800}
+.tut-steps{list-style:none;display:grid;gap:16px;margin:0}
+.tut-steps li{display:flex;gap:14px;align-items:flex-start}
+.tut-steps .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-weight:800;font-size:.95rem}
+.tut-steps strong{display:block;margin-bottom:2px}
+.tut-steps p{color:var(--muted);font-size:.93rem;margin:0}
+.tut-tip{margin-top:20px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:.9rem;color:#c3c8dc}
+.tut-tip ul{margin:8px 0 0 18px;color:var(--muted)}
+.tut-tip li{margin-bottom:4px}
+</style>
 </head>
+
 <body>
-  <main class="wrap">
-    <a class="brand" href="/" aria-label="Tomy Eka RMX – Beranda"><span class="disc" aria-hidden="true"></span><span>Tomy Eka RMX<small>DJ TRAP · DJ SHOLAWAT</small></span></a>
-    <section class="card" aria-labelledby="title">
-      <div class="icon" aria-hidden="true">🛠️</div>
-      <span class="eyebrow">Website Resmi Tomy Eka RMX</span>
-      <h1 id="title">Sedang Dalam Pemeliharaan</h1>
-      <p>Kami sedang melakukan pembaruan dan perawatan website agar pengalaman mengakses project FLM DJ Trap dan DJ Sholawat menjadi lebih baik.</p>
-      <p>Silakan kunjungi kembali beberapa saat lagi. Terima kasih atas pengertianmu.</p>
-      <div class="status"><span class="dot" aria-hidden="true"></span> Maintenance berlangsung</div>
-      <br>
-      <a class="btn" href="javascript:location.reload()">↻ Coba Muat Ulang</a>
-    </section>
-    <div class="foot">© <span id="year">2026</span> Tomy Eka RMX. Semua hak dilindungi.</div>
-  </main>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+<noscript><p style="padding:20px;text-align:center">Website ini membutuhkan JavaScript. Mohon aktifkan JavaScript di peramban Anda.</p></noscript>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#/" aria-label="Tomy Eka RMX — Beranda">
+      <span class="disc" aria-hidden="true"></span>
+      <span>Tomy Eka RMX<small>DJ Trap · DJ Sholawat</small></span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Buka menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+    <nav class="main-nav" id="main-nav" aria-label="Menu utama">
+      <ul>
+        <li><a href="#/" data-nav="home">Home</a></li>
+        <li><a href="#/profil" data-nav="profil">Profil</a></li>
+        <li><a href="#/project" data-nav="project">Project</a></li>
+        <li><a href="#/tentang" data-nav="tentang">Tentang</a></li>
+        <li><a href="#/kontak" data-nav="kontak">Contact</a></li>
+        <li><a href="#/order" data-nav="order" class="nav-order">🛒 Order</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container" id="content">
+
+  <!-- ---------- HOME ---------- -->
+  <section class="page" id="page-home" data-route="home"
+    data-title="Tomy Eka RMX – Project FLM DJ Trap & DJ Sholawat"
+    data-desc="Website resmi Tomy Eka RMX: download project FLM DJ Trap dan DJ Sholawat, profil channel YouTube, dan order DJ via WhatsApp Business.">
+    <div class="hero">
+      <span class="eyebrow">Website Resmi</span>
+      <h1>Project FLM DJ Trap & DJ Sholawat</h1>
+      <p>Tonton videonya di YouTube, capai target view, lalu unduh file project FLM-nya. Mau request DJ khusus? Pesan langsung lewat WhatsApp Business.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#/project">🎧 Lihat Project</a>
+        <a class="btn btn-gold" href="#/order">🛒 Order Sekarang</a>
+        <a class="btn btn-line" id="hero-yt" href="#" target="_blank" rel="noopener">▶ Subscribe YouTube</a>
+      </div>
+      <div class="eq" id="eq" aria-hidden="true"></div>
+    </div>
+
+    <div class="stats" id="home-stats"></div>
+
+    <h2 class="section-title">Project Terbaru <a href="#/project">Lihat semua →</a></h2>
+    <div class="grid" id="home-latest"></div>
+
+    <h2 class="section-title">Cara Download Project</h2>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Tonton di YouTube</h3><p>Buka video project yang kamu mau, tonton, dan bagikan ke teman-temanmu.</p></div>
+      <div class="step"><div class="n">2</div><h3>Capai Target View</h3><p>Setiap project punya target 500 atau 1K view. Progress-nya tampil langsung di halaman download.</p></div>
+      <div class="step"><div class="n">3</div><h3>Download Terbuka</h3><p>Begitu target tercapai, tombol download aktif dan mengarahkan ke link file project.</p></div>
+    </div>
+
+    <h2 class="section-title">Layanan Order DJ <a href="#/order">Detail harga →</a></h2>
+    <div class="price-grid" id="home-order"></div>
+
+    <div class="cta-band">
+      <h2>Dukung Channel Tomy Eka RMX</h2>
+      <p>Subscribe dan nyalakan lonceng supaya tidak ketinggalan project terbaru.</p>
+      <a class="btn btn-red" id="cta-yt" href="#" target="_blank" rel="noopener">▶ Kunjungi Channel YouTube</a>
+    </div>
+  </section>
+
+  <!-- ---------- PROFIL ---------- -->
+  <section class="page" data-route="profil" hidden
+    data-title="Profil – Tomy Eka RMX"
+    data-desc="Profil Tomy Eka dan sejarah singkat channel YouTube Tomy Eka RMX.">
+    <span class="eyebrow">Profil</span>
+    <h1 class="page-title">Mengenal Tomy Eka RMX</h1>
+    <p class="page-sub">Kreator konten musik di balik channel YouTube Tomy Eka RMX.</p>
+    <div class="profile">
+      <!-- Untuk foto asli: ganti isi div.avatar dengan <img src="foto.jpg" alt="Tomy Eka"> -->
+      <div class="avatar" aria-label="Foto profil">TE</div>
+      <div style="display:grid;gap:20px">
+        <div class="panel">
+          <h2>Tentang Saya</h2>
+          <p>Saya Tomy Eka, pembuat konten di balik channel YouTube <strong>Tomy Eka RMX</strong>. Fokus saya adalah remix DJ bergenre trap dan DJ sholawat, yang saya garap sendiri menggunakan FL Studio Mobile.</p>
+          <p>Selain membagikan video, saya juga membagikan file project FLM agar teman-teman bisa belajar, mengolah ulang, dan berkreasi.</p>
+          <div class="skills"><span>DJ Trap</span><span>DJ Sholawat</span><span>FL Studio Mobile</span><span>Remix & Aransemen</span></div>
+        </div>
+        <div class="panel">
+          <h2>Sejarah Singkat Channel YouTube</h2>
+          <!-- EDIT: ganti teks tahap di bawah dengan sejarah asli beserta tahunnya. -->
+          <div class="timeline">
+            <div class="tl"><h3>Awal Mula</h3><p>Tomy Eka RMX berawal dari kecintaan pada musik dan keinginan membuat remix DJ sendiri, lalu membagikannya lewat YouTube.</p></div>
+            <div class="tl"><h3>Mulai Berbagi Project</h3><p>Selain video, file project FLM mulai dibagikan supaya teman-teman bisa belajar dan berkreasi.</p></div>
+            <div class="tl"><h3>Hadir dengan DJ Sholawat</h3><p>Konten berkembang ke DJ sholawat dengan aransemen bass yang tetap nyaman didengar.</p></div>
+            <div class="tl"><h3>Sampai Hari Ini</h3><p>Website resmi ini hadir sebagai pusat project, download, dan layanan order.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- DAFTAR PROJECT ---------- -->
+  <section class="page" data-route="project" hidden
+    data-title="Daftar Project – Tomy Eka RMX"
+    data-desc="Daftar project FLM DJ Trap dan DJ Sholawat. Download terbuka setelah video mencapai target view di YouTube.">
+    <span class="eyebrow">Project</span>
+    <h1 class="page-title">Daftar Project FLM</h1>
+    <p class="page-sub">Download terbuka otomatis setelah video di YouTube mencapai target view 500 atau 1K.</p>
+    <div class="toolbar"><input class="input" id="project-q" type="search" placeholder="Cari nama project…" aria-label="Cari project"></div>
+    <div class="chips" id="project-chips">
+      <button class="chip active" data-f="all">Semua</button>
+      <button class="chip" data-f="DJ Trap">DJ Trap</button>
+      <button class="chip" data-f="DJ Sholawat">DJ Sholawat</button>
+      <button class="chip" data-f="open">✅ Terbuka</button>
+      <button class="chip" data-f="locked">🔒 Terkunci</button>
+    </div>
+    <div class="grid" id="project-list"></div>
+    <div class="empty" id="project-empty" hidden>Tidak ada project yang cocok.</div>
+  </section>
+
+  <!-- ---------- DOWNLOAD (detail project) ---------- -->
+  <section class="page" data-route="download" data-nav="project" hidden
+    data-title="Download Project – Tomy Eka RMX"
+    data-desc="Informasi file, progress view YouTube, dan tombol download project FLM.">
+    <div id="download-view"></div>
+  </section>
+
+  <!-- ---------- TENTANG ---------- -->
+  <section class="page" data-route="tentang" hidden
+    data-title="Tentang – Tomy Eka RMX"
+    data-desc="Tentang website Tomy Eka RMX, sistem download berdasarkan view YouTube, dan pertanyaan yang sering diajukan.">
+    <span class="eyebrow">Tentang</span>
+    <h1 class="page-title">Tentang Website Ini</h1>
+    <p class="page-sub">Website resmi untuk membagikan project FLM DJ Trap dan DJ Sholawat dari channel YouTube Tomy Eka RMX.</p>
+    <div class="panel" style="margin-bottom:26px">
+      <h2>Tujuan</h2>
+      <p>Menyediakan tempat yang rapi untuk mengunduh file project FLM, melihat progress view tiap video, dan memesan layanan DJ secara langsung. Sistem kunci view dibuat agar video di YouTube ikut terdukung oleh para pengunduh.</p>
+    </div>
+    <h2 class="section-title" style="margin-top:0">Pertanyaan Umum</h2>
+    <details class="faq"><summary>Apa itu file FLM?</summary><p>FLM adalah format file project dari FL Studio Mobile. File ini bisa dibuka di aplikasi FL Studio Mobile untuk melihat susunan track dan mengolahnya kembali.</p></details>
+    <details class="faq"><summary>Kenapa tombol download terkunci?</summary><p>Setiap project punya target view di YouTube, yaitu 500 atau 1K view. Selama jumlah view belum mencapai target, download tetap terkunci. Progress-nya terlihat di halaman download.</p></details>
+    <details class="faq"><summary>Bagaimana cara membuka download?</summary><p>Buka video project di YouTube lewat tombol "Tonton di YouTube", lalu bantu bagikan. Setelah view mencapai target, buka kembali halaman download dan tombolnya akan aktif.</p></details>
+    <details class="faq"><summary>Bolehkah project dipakai ulang?</summary><p>Boleh dipakai untuk belajar dan berkreasi. Jika dipublikasikan, mohon cantumkan kredit "Tomy Eka RMX" dan jangan menjual ulang file project.</p></details>
+    <details class="faq"><summary>Bagaimana cara order DJ atau membeli project?</summary><p>Buka menu <a href="#/order">Order</a>, pilih layanan, lalu klik tombol pesan. Kamu akan langsung diarahkan ke WhatsApp Business.</p></details>
+  </section>
+
+  <!-- ---------- KONTAK ---------- -->
+  <section class="page" data-route="kontak" hidden
+    data-title="Contact – Tomy Eka RMX"
+    data-desc="Hubungi Tomy Eka RMX lewat WhatsApp Business, YouTube, dan media sosial.">
+    <span class="eyebrow">Contact</span>
+    <h1 class="page-title">Hubungi Saya</h1>
+    <p class="page-sub">Untuk kerja sama, pertanyaan, atau kendala download, hubungi lewat kanal di bawah ini.</p>
+    <div class="contact-grid" id="contact-cards"></div>
+    <div class="panel" style="max-width:640px">
+      <h2>Kirim Pesan via WhatsApp</h2>
+      <form id="contact-form">
+        <div class="field"><label for="k-nama">Nama</label><input class="input" id="k-nama" required autocomplete="name"></div>
+        <div class="field"><label for="k-pesan">Pesan</label><textarea class="textarea" id="k-pesan" required></textarea></div>
+        <button class="btn btn-green" type="submit">Kirim ke WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ---------- ORDER ---------- -->
+  <section class="page" data-route="order" hidden
+    data-title="Order – Tomy Eka RMX"
+    data-desc="Daftar harga request DJ dan pembelian project FLM. Klik pesan untuk langsung ke WhatsApp Business.">
+    <span class="eyebrow">Order</span>
+    <h1 class="page-title">Order & Daftar Harga</h1>
+    <p class="page-sub">Pilih jenis DJ yang ingin kamu request. Klik <strong>Pesan</strong> dan kamu langsung diarahkan ke WhatsApp Business.</p>
+
+    <h2 class="section-title" style="margin-top:0">Request DJ <span style="font-size:.9rem;color:var(--muted);font-weight:600" id="price-range"></span></h2>
+    <div class="price-grid" id="dj-services"></div>
+
+    <div class="panel" style="margin-top:22px">
+      <h2>Detail Request (opsional)</h2>
+      <p style="color:var(--muted);font-size:.93rem">Isi lagu atau referensi yang diinginkan agar pesanmu langsung lengkap di WhatsApp.</p>
+      <form id="dj-form">
+        <div class="two">
+          <div class="field"><label for="d-nama">Nama</label><input class="input" id="d-nama" required autocomplete="name"></div>
+          <div class="field"><label for="d-jenis">Jenis DJ</label><select class="select" id="d-jenis"></select></div>
+        </div>
+        <div class="field"><label for="d-lagu">Judul lagu / referensi</label><input class="input" id="d-lagu" placeholder="Contoh: judul lagu atau link YouTube"></div>
+        <div class="field"><label for="d-catatan">Catatan</label><textarea class="textarea" id="d-catatan" placeholder="Gaya, durasi, atau permintaan khusus"></textarea></div>
+        <button class="btn btn-green" type="submit">Pesan via WhatsApp</button>
+      </form>
+    </div>
+
+    <h2 class="section-title">Beli Project FLM</h2>
+    <div class="flm">
+      <div>
+        <span class="tag t-trap">Project FLM</span>
+        <h3 style="font-size:1.4rem;margin:10px 0 8px">Pilih project atau isi sendiri</h3>
+        <p style="color:#c3c8dc;margin-bottom:16px">Pilih dari daftar project, atau pilih <strong>Isi sendiri</strong> lalu tulis project yang kamu inginkan.</p>
+        <div class="amt" id="flm-price"></div>
+        <p style="color:var(--muted);font-size:.88rem">per project FLM</p>
+      </div>
+      <div>
+        <div class="field"><label for="flm-select">Pilihan</label><select class="select" id="flm-select"></select></div>
+        <div class="field" id="flm-custom-wrap" hidden><label for="flm-custom">Tulis sendiri</label><input class="input" id="flm-custom" placeholder="Nama project / lagu yang diinginkan"></div>
+        <button class="btn btn-gold btn-block" id="flm-btn" type="button">🛒 Pesan via WhatsApp</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- 404 ---------- -->
+  <section class="page" data-route="404" hidden data-title="Halaman Tidak Ditemukan – Tomy Eka RMX" data-desc="Halaman tidak ditemukan.">
+    <div class="empty"><h1 style="color:var(--text);margin-bottom:10px">Halaman tidak ditemukan</h1><p style="margin-bottom:18px">Alamat yang kamu tuju mungkin salah atau sudah dipindahkan.</p><a class="btn" href="#/">Kembali ke Home</a></div>
+  </section>
+
+  <!-- FITUR BARU (halaman): tambahkan <section class="page" data-route="..."> baru DI BAWAH baris ini. -->
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand"><span class="disc" aria-hidden="true"></span><span>Tomy Eka RMX</span></div>
+        <p>Website resmi untuk project FLM DJ Trap & DJ Sholawat, profil channel YouTube, dan layanan order DJ.</p>
+      </div>
+      <div><h4>Menu</h4><ul>
+        <li><a href="#/">Home</a></li><li><a href="#/profil">Profil</a></li><li><a href="#/project">Project</a></li>
+        <li><a href="#/tentang">Tentang</a></li><li><a href="#/kontak">Contact</a></li><li><a href="#/order">Order</a></li>
+      </ul></div>
+      <div><h4>Ikuti</h4><ul id="footer-social"></ul></div>
+    </div>
+    <div class="copy">© <span id="year">2026</span> Tomy Eka RMX. Semua hak dilindungi.</div>
+  </div>
+</footer>
+
+<!-- BLOK JS 1 — PENGATURAN & DATA berada di file terpisah: pengaturan-data.js
+     Edit nomor WhatsApp, link, harga, dan daftar project di file tersebut. -->
+<script src="pengaturan-data.js"></script>
+
+<!-- =========================================================
+     BLOK JS 2 — UTILITAS & ROUTER
+     Router mengirim event "page:show" setiap halaman berganti.
+     Fitur baru cukup mendengarkan event ini tanpa mengubah blok lain.
+     ========================================================= -->
+<script>
+function $(s){ return document.querySelector(s); }
+function $$(s){ return [].slice.call(document.querySelectorAll(s)); }
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function rp(n){ return 'Rp' + Number(n).toLocaleString('id-ID'); }
+function num(n){ return Number(n).toLocaleString('id-ID'); }
+function fmtDate(iso, long){
+  var d = new Date(iso + 'T00:00:00');
+  return d.toLocaleDateString('id-ID', long ? { weekday:'long', day:'numeric', month:'long', year:'numeric' } : { day:'numeric', month:'short', year:'numeric' });
+}
+
+(function(){
+  var pages = $$('.page');
+  var metaDesc = document.querySelector('meta[name="description"]');
+  var defaultDesc = metaDesc ? metaDesc.getAttribute('content') : '';
+  function parse(){
+    var h = location.hash.replace(/^#\/?/, '');
+    var i = h.indexOf('?');
+    return { key: (i > -1 ? h.slice(0, i) : h) || 'home', params: new URLSearchParams(i > -1 ? h.slice(i + 1) : '') };
+  }
+  function render(){
+    var r = parse();
+    var target = pages.filter(function(p){ return p.dataset.route === r.key; })[0] ||
+                 pages.filter(function(p){ return p.dataset.route === '404'; })[0];
+    pages.forEach(function(p){ p.hidden = (p !== target); });
+    document.title = target.dataset.title || SITE.name;
+    if (metaDesc) metaDesc.setAttribute('content', target.dataset.desc || defaultDesc);
+    var navKey = target.dataset.nav || r.key.split('/')[0];
+    $$('[data-nav]').forEach(function(a){
+      if (a.tagName === 'A') a.classList.toggle('active', a.dataset.nav === navKey);
+    });
+    window.scrollTo(0, 0);
+    window.CURRENT_ROUTE = r;
+    document.dispatchEvent(new CustomEvent('page:show', { detail: r }));
+  }
+  window.addEventListener('hashchange', render);
+  document.addEventListener('DOMContentLoaded', render);
+})();
+
+/* =========================================================
+   BLOK JS 3 — NAVIGASI MOBILE, FOOTER, EQUALIZER, TAUTAN SOSIAL
+   ========================================================= */
+(function(){
+  var btn = $('#nav-toggle'), nav = $('#main-nav');
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('page:show', function(){
+    nav.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  });
+  $('#year').textContent = new Date().getFullYear();
+
+  var eq = $('#eq');
+  for (var i = 0; i < 40; i++) {
+    var b = document.createElement('i');
+    b.style.animationDuration = (0.7 + Math.random() * 0.9).toFixed(2) + 's';
+    b.style.animationDelay = (-Math.random() * 1.5).toFixed(2) + 's';
+    eq.appendChild(b);
+  }
+
+  ['#hero-yt', '#cta-yt'].forEach(function(s){ $(s).href = SITE.youtubeChannel; });
+  var links = [['▶ YouTube', SITE.youtubeChannel], ['Instagram', SITE.instagram], ['TikTok', SITE.tiktok], ['WhatsApp Business', 'wa']];
+  $('#footer-social').innerHTML = links.filter(function(l){ return l[1]; }).map(function(l){
+    return l[1] === 'wa'
+      ? '<li><a href="#/order">' + l[0] + '</a></li>'
+      : '<li><a href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + l[0] + '</a></li>';
+  }).join('');
+})();
+
+/* =========================================================
+   BLOK JS 4 — WHATSAPP BUSINESS
+   ========================================================= */
+function openWA(text){
+  var n = SITE.waNumber;
+  if (!/^\d{8,15}$/.test(n)) {
+    alert('Nomor WhatsApp belum diatur. Isi SITE.waNumber di file pengaturan-data.js.');
+    return;
+  }
+  window.open('https://wa.me/' + n + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
+}
+
+/* =========================================================
+   BLOK JS 5 — DATA VIEW YOUTUBE & KUNCI DOWNLOAD
+   Download terbuka bila view video >= unlockViews (500 / 1000).
+   ========================================================= */
+var Views = { data: {}, source: 'manual' };
+PROJECTS.forEach(function(p){ Views.data[p.ytId] = Number(p.manualViews) || 0; });
+
+function viewsOf(p){ return Views.data[p.ytId] || 0; }
+function isUnlocked(p){ return viewsOf(p) >= p.unlockViews; }
+function percent(p){ return Math.min(100, Math.round(viewsOf(p) / p.unlockViews * 100)); }
+function targetLabel(p){ return p.unlockViews >= 1000 ? (p.unlockViews / 1000) + 'K view' : p.unlockViews + ' view'; }
+
+(function(){
+  if (!SITE.ytApiKey) return;
+  var ids = PROJECTS.map(function(p){ return p.ytId; }).filter(Boolean), chunks = [];
+  for (var i = 0; i < ids.length; i += 50) chunks.push(ids.slice(i, i + 50));
+  Promise.all(chunks.map(function(c){
+    return fetch('https://www.googleapis.com/youtube/v3/videos?part=statistics&id=' + c.join(',') + '&key=' + encodeURIComponent(SITE.ytApiKey))
+      .then(function(r){ if (!r.ok) throw new Error('API'); return r.json(); });
+  })).then(function(res){
+    res.forEach(function(j){
+      (j.items || []).forEach(function(it){ Views.data[it.id] = parseInt(it.statistics.viewCount, 10) || 0; });
+    });
+    Views.source = 'youtube';
+    document.dispatchEvent(new CustomEvent('views:updated'));
+  }).catch(function(){ /* tetap memakai manualViews */ });
+})();
+
+/* =========================================================
+   BLOK JS 6 — KARTU PROJECT, HOME, DAFTAR PROJECT, HALAMAN DOWNLOAD
+   ========================================================= */
+function thumbHTML(p, cls){
+  return '<img class="timg ' + (cls || '') + '" data-thumb loading="lazy" alt="Thumbnail ' + esc(p.name) + '" src="https://i.ytimg.com/vi/' + encodeURIComponent(p.ytId) + '/hqdefault.jpg">';
+}
+document.addEventListener('error', function(e){
+  var t = e.target;
+  if (t && t.tagName === 'IMG' && t.hasAttribute('data-thumb')) {
+    var d = document.createElement('div');
+    d.className = 'timg thumb-fallback';
+    d.setAttribute('role', 'img');
+    d.setAttribute('aria-label', t.alt);
+    d.innerHTML = '<span>🎧</span>';
+    t.replaceWith(d);
+  }
+}, true);
+
+function projectCard(p){
+  var open = isUnlocked(p), href = '#/download?id=' + encodeURIComponent(p.id);
+  return '<article class="pcard">' +
+    '<a class="pthumb" href="' + href + '" aria-label="Buka ' + esc(p.name) + '">' + thumbHTML(p) +
+      '<span class="lockb ' + (open ? 'open' : '') + '">' + (open ? '✅ Terbuka' : '🔒 ' + targetLabel(p)) + '</span></a>' +
+    '<div class="pbody">' +
+      '<span class="tag ' + (p.category === 'DJ Trap' ? 't-trap' : 't-sholawat') + '">' + esc(p.category) + '</span>' +
+      '<h3><a href="' + href + '">' + esc(p.name) + '</a></h3>' +
+      '<p class="pmeta">' + esc(p.fileName) + ' · ' + esc(p.fileSize) + ' · ' + fmtDate(p.date) + '</p>' +
+      '<div class="bar ' + (open ? 'done' : '') + '"><i style="width:' + percent(p) + '%"></i></div>' +
+      '<div class="pviews"><span>' + num(viewsOf(p)) + ' / ' + num(p.unlockViews) + ' view</span><span>' + percent(p) + '%</span></div>' +
+      '<a class="btn btn-sm" href="' + href + '">⬇ Download</a>' +
+    '</div></article>';
+}
+function newestFirst(){ return PROJECTS.slice().sort(function(a, b){ return a.date < b.date ? 1 : -1; }); }
+
+/* Home */
+function renderHome(){
+  var open = PROJECTS.filter(isUnlocked).length;
+  $('#home-stats').innerHTML =
+    '<div class="stat"><b>' + PROJECTS.length + '</b><span>Project FLM</span></div>' +
+    '<div class="stat"><b>' + open + '</b><span>Download terbuka</span></div>' +
+    '<div class="stat"><b>500 · 1K</b><span>Target view</span></div>' +
+    '<div class="stat"><b>2</b><span>Genre: Trap & Sholawat</span></div>';
+  $('#home-latest').innerHTML = newestFirst().slice(0, 3).map(projectCard).join('');
+}
+
+/* Daftar project */
+var projectState = { q: '', f: 'all' };
+function renderProjectList(){
+  var q = projectState.q.trim().toLowerCase(), f = projectState.f;
+  var list = newestFirst().filter(function(p){
+    if (q && (p.name + ' ' + p.fileName + ' ' + p.category).toLowerCase().indexOf(q) < 0) return false;
+    if (f === 'open') return isUnlocked(p);
+    if (f === 'locked') return !isUnlocked(p);
+    if (f !== 'all') return p.category === f;
+    return true;
+  });
+  $('#project-list').innerHTML = list.map(projectCard).join('');
+  $('#project-empty').hidden = list.length > 0;
+  $$('#project-chips .chip').forEach(function(c){ c.classList.toggle('active', c.dataset.f === f); });
+}
+$('#project-q').addEventListener('input', function(e){ projectState.q = e.target.value; renderProjectList(); });
+$('#project-chips').addEventListener('click', function(e){
+  var c = e.target.closest('.chip'); if (!c) return;
+  projectState.f = c.dataset.f; renderProjectList();
+});
+
+/* Halaman download */
+function renderDownload(){
+  var id = (window.CURRENT_ROUTE.params.get('id') || ''), box = $('#download-view');
+  var p = PROJECTS.filter(function(x){ return x.id === id; })[0];
+  if (!p) {
+    box.innerHTML = '<div class="empty"><p style="margin-bottom:14px">Project tidak ditemukan.</p><a class="btn" href="#/project">Kembali ke daftar project</a></div>';
+    return;
+  }
+  var open = isUnlocked(p), v = viewsOf(p), left = Math.max(0, p.unlockViews - v);
+  var yt = 'https://www.youtube.com/watch?v=' + encodeURIComponent(p.ytId);
+  var action;
+  if (open) {
+    action = p.downloadUrl
+      ? '<a class="btn btn-green" href="' + esc(p.downloadUrl) + '" target="_blank" rel="noopener noreferrer">⬇ Download Sekarang</a>'
+      : '<button class="btn" disabled>Link download belum tersedia</button>';
+  } else {
+    action = '<button class="btn" disabled>🔒 Terkunci — butuh ' + num(left) + ' view lagi</button>' +
+             '<a class="btn btn-red" href="' + yt + '" target="_blank" rel="noopener">▶ Tonton di YouTube</a>';
+  }
+  box.innerHTML =
+    '<nav class="breadcrumb" aria-label="Breadcrumb"><a href="#/">Home</a> › <a href="#/project">Project</a> › ' + esc(p.name) + '</nav>' +
+    '<div class="dl">' +
+      '<div><a class="pthumb" href="' + yt + '" target="_blank" rel="noopener" aria-label="Tonton video di YouTube">' + thumbHTML(p) +
+        '<span class="play"><span>▶</span></span></a></div>' +
+      '<div>' +
+        '<span class="tag ' + (p.category === 'DJ Trap' ? 't-trap' : 't-sholawat') + '">' + esc(p.category) + '</span>' +
+        '<h1 style="font-size:1.5rem;margin:10px 0 0">' + esc(p.name) + '</h1>' +
+        '<dl class="info">' +
+          '<div><dt>Nama file</dt><dd>' + esc(p.fileName) + '</dd></div>' +
+          '<div><dt>Ukuran file</dt><dd>' + esc(p.fileSize) + '</dd></div>' +
+          '<div><dt>Jenis file</dt><dd>' + esc(p.fileType) + '</dd></div>' +
+          '<div><dt>Hari / tanggal</dt><dd>' + fmtDate(p.date, true) + '</dd></div>' +
+          '<div><dt>ID video YouTube</dt><dd><code>' + esc(p.ytId) + '</code></dd></div>' +
+        '</dl>' +
+        '<div class="viewbox">' +
+          '<div class="row"><strong>Progress view</strong><span>' + num(v) + ' / ' + num(p.unlockViews) + ' view (' + percent(p) + '%)</span></div>' +
+          '<div class="bar big ' + (open ? 'done' : '') + '"><i style="width:' + percent(p) + '%"></i></div>' +
+          '<p class="hint">' + (open ? '✅ Target ' + targetLabel(p) + ' tercapai. Download sudah terbuka.' : '🔒 Download terbuka setelah video mencapai ' + targetLabel(p) + ' di YouTube.') + '</p>' +
+        '</div>' +
+        '<div class="dl-actions">' + action + '</div>' +
+        '<p class="note">' + (Views.source === 'youtube' ? 'Jumlah view diambil langsung dari YouTube.' : 'Jumlah view memakai data manual dan diperbarui berkala.') + '</p>' +
+      '</div>' +
+    '</div>';
+  document.title = p.name + ' – Download – ' + SITE.name;
+}
+
+function renderByRoute(){
+  var k = window.CURRENT_ROUTE && window.CURRENT_ROUTE.key;
+  if (k === 'home') renderHome();
+  if (k === 'project') renderProjectList();
+  if (k === 'download') renderDownload();
+}
+document.addEventListener('page:show', renderByRoute);
+document.addEventListener('views:updated', renderByRoute);
+
+/* =========================================================
+   BLOK JS 7 — ORDER (request DJ, beli project FLM) & KONTAK
+   ========================================================= */
+function serviceCard(s){
+  return '<div class="price' + (s.popular ? ' pop' : '') + '">' + (s.popular ? '<span class="pill">Terlaris</span>' : '') +
+    '<div class="ic">' + s.icon + '</div><h3>' + esc(s.name) + '</h3>' +
+    '<div class="amt">' + rp(s.price) + '</div><p style="color:var(--muted);font-size:.93rem">' + esc(s.desc) + '</p>' +
+    '<ul>' + s.features.map(function(f){ return '<li>' + esc(f) + '</li>'; }).join('') + '</ul>' +
+    '<button class="btn ' + (s.popular ? 'btn-gold' : '') + '" type="button" data-wa-service="' + esc(s.id) + '">🛒 Pesan</button></div>';
+}
+$('#dj-services').innerHTML = DJ_SERVICES.map(serviceCard).join('');
+$('#home-order').innerHTML = DJ_SERVICES.map(serviceCard).join('');
+$('#d-jenis').innerHTML = DJ_SERVICES.map(function(s){ return '<option value="' + esc(s.id) + '">' + esc(s.name) + ' — ' + rp(s.price) + '</option>'; }).join('');
+(function(){
+  var prices = DJ_SERVICES.map(function(s){ return s.price; });
+  $('#price-range').textContent = '(' + rp(Math.min.apply(null, prices)) + ' – ' + rp(Math.max.apply(null, prices)) + ')';
+  $('#flm-price').textContent = rp(FLM_PRICE);
+})();
+
+function findService(id){ return DJ_SERVICES.filter(function(s){ return s.id === id; })[0]; }
+
+document.addEventListener('click', function(e){
+  var b = e.target.closest('[data-wa-service]'); if (!b) return;
+  var s = findService(b.dataset.waService); if (!s) return;
+  openWA('Halo Kak Tomy, saya mau pesan ' + s.name + ' (' + rp(s.price) + '). Mohon info selanjutnya.');
+});
+
+$('#dj-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  var s = findService($('#d-jenis').value);
+  openWA('Halo Kak Tomy, saya mau order DJ:\n' +
+    '• Nama: ' + $('#d-nama').value + '\n' +
+    '• Jenis: ' + s.name + ' (' + rp(s.price) + ')\n' +
+    '• Lagu/Referensi: ' + ($('#d-lagu').value || '-') + '\n' +
+    '• Catatan: ' + ($('#d-catatan').value || '-'));
+});
+
+(function(){
+  var sel = $('#flm-select'), wrap = $('#flm-custom-wrap');
+  sel.innerHTML = '<option value="__custom">✍️ Isi sendiri</option>' +
+    newestFirst().map(function(p){ return '<option value="' + esc(p.id) + '">' + esc(p.name) + '</option>'; }).join('');
+  function sync(){ wrap.hidden = sel.value !== '__custom'; }
+  sel.addEventListener('change', sync); sync();
+  $('#flm-btn').addEventListener('click', function(){
+    var name;
+    if (sel.value === '__custom') {
+      name = $('#flm-custom').value.trim();
+      if (!name) { alert('Tulis dulu project yang kamu inginkan.'); $('#flm-custom').focus(); return; }
+    } else {
+      name = sel.options[sel.selectedIndex].text;
+    }
+    openWA('Halo Kak Tomy, saya mau beli project FLM:\n• Project: ' + name + '\n• Harga: ' + rp(FLM_PRICE) + '\nMohon info selanjutnya.');
+  });
+})();
+
+(function(){
+  var cards = [];
+  cards.push('<a class="ccard wa" href="#" id="wa-card"><span class="ic">💬</span><strong>WhatsApp Business</strong><span>Respon cepat untuk order dan pertanyaan</span></a>');
+  if (SITE.youtubeChannel) cards.push('<a class="ccard" href="' + esc(SITE.youtubeChannel) + '" target="_blank" rel="noopener"><span class="ic">▶️</span><strong>YouTube</strong><span>Tomy Eka RMX</span></a>');
+  if (SITE.instagram) cards.push('<a class="ccard" href="' + esc(SITE.instagram) + '" target="_blank" rel="noopener"><span class="ic">📸</span><strong>Instagram</strong><span>Ikuti update terbaru</span></a>');
+  if (SITE.tiktok) cards.push('<a class="ccard" href="' + esc(SITE.tiktok) + '" target="_blank" rel="noopener"><span class="ic">🎵</span><strong>TikTok</strong><span>Cuplikan video</span></a>');
+  if (SITE.email) cards.push('<a class="ccard" href="mailto:' + esc(SITE.email) + '"><span class="ic">✉️</span><strong>Email</strong><span>' + esc(SITE.email) + '</span></a>');
+  $('#contact-cards').innerHTML = cards.join('');
+  $('#wa-card').addEventListener('click', function(e){ e.preventDefault(); openWA('Halo Kak Tomy, saya ingin bertanya.'); });
+  $('#contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    openWA('Halo Kak Tomy, saya ' + $('#k-nama').value + '.\n' + $('#k-pesan').value);
+  });
+})();
+
+/* =========================================================
+   FITUR BARU — tambahkan blok JS baru DI BAWAH garis ini.
+   Gunakan document.addEventListener('page:show', ...) bila perlu
+   bereaksi pada pergantian halaman. Jangan mengubah blok di atasnya.
+   ========================================================= */
+
+/* =========================================================
+   BLOK JS 8 — TUTORIAL DOWNLOAD (subs4unlock → safelink → Google Drive)
+   Menambahkan panel tutorial di bawah informasi file pada halaman download.
+   Tombol Download tetap membuka link tujuan di data project (downloadUrl);
+   isi downloadUrl dengan link subs4unlock.co milikmu.
+   ========================================================= */
+(function(){
+  var STEPS = [
+    { t: 'Klik tombol Download',
+      d: 'Setelah target view tercapai, tombol Download aktif dan membuka halaman subs4unlock.co di tab baru.' },
+    { t: 'Selesaikan langkah di subs4unlock.co',
+      d: 'Ikuti langkah yang diminta di halaman tersebut (misalnya subscribe channel), lalu lanjutkan.' },
+    { t: 'Lewati halaman safelink',
+      d: 'Tunggu hitungan mundur atau selesaikan verifikasi di halaman safelink, lalu klik tombol lanjut.' },
+    { t: 'File terbuka di Google Drive',
+      d: 'Kamu otomatis diarahkan ke file di Google Drive. Klik tombol Download di Google Drive untuk menyimpan file FLM.' }
+  ];
+  var TIPS = [
+    'Jika halaman safelink tidak bisa dilanjutkan, matikan sementara pemblokir iklan lalu muat ulang halaman.',
+    'Gunakan browser terbaru dan pastikan koneksi internet stabil.',
+    'File FLM dibuka dengan aplikasi FL Studio Mobile.'
+  ];
+
+  function render(){
+    var k = window.CURRENT_ROUTE && window.CURRENT_ROUTE.key;
+    if (k !== 'download') return;
+    var box = document.getElementById('download-view');
+    if (!box || !box.querySelector('.dl')) return;      // project tidak ditemukan
+    if (box.querySelector('.tutorial')) return;         // cegah ganda
+    var open = !!box.querySelector('.btn-green');
+    box.insertAdjacentHTML('beforeend',
+      '<section class="tutorial panel" aria-label="Tutorial download">' +
+        '<div class="tut-head"><h2>Tutorial Download</h2>' +
+          '<span class="tut-state ' + (open ? 'open' : 'locked') + '">' +
+            (open ? '✅ Download sudah terbuka' : '🔒 Berlaku setelah target view tercapai') + '</span></div>' +
+        '<div class="chain" aria-label="Alur download"><span>subs4unlock.co</span><i>→</i><span>Safelink</span><i>→</i><span>Google Drive</span></div>' +
+        '<ol class="tut-steps">' +
+          STEPS.map(function(s, i){
+            return '<li><span class="n">' + (i + 1) + '</span><div><strong>' + esc(s.t) + '</strong><p>' + esc(s.d) + '</p></div></li>';
+          }).join('') +
+        '</ol>' +
+        '<div class="tut-tip"><strong>Tips</strong><ul>' +
+          TIPS.map(function(t){ return '<li>' + esc(t) + '</li>'; }).join('') +
+        '</ul><p style="margin-top:10px">Link bermasalah? <a href="#/kontak">Hubungi kami</a>.</p></div>' +
+      '</section>');
+  }
+  document.addEventListener('page:show', render);
+  document.addEventListener('views:updated', render);
+})();
+</script>
 </body>
 </html>
