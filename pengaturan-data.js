@@ -1,3 +1,4 @@
+
 /* =========================================================
    PENGATURAN & DATA — Tomy Eka RMX
    File ini dimuat oleh index.html sebelum script utama.
@@ -10,14 +11,14 @@ var SITE = {
   // Nomor WhatsApp Business, format internasional tanpa + dan tanpa spasi. Contoh: 6281234567890
   waNumber: "62XXXXXXXXXXX",
   youtubeChannel: "https://www.youtube.com/@TomyEkaRMX",   // GANTI dengan link channel asli
-  instagram: "",    // isi link bila ada, kosongkan bila tidak dipakai
+  instagram: "",
   tiktok: "",
   email: "",
-  // API key YouTube Data v3 (opsional). Bila kosong, jumlah view memakai nilai manualViews di tiap project.
-  ytApiKey: ""
+  // API key YouTube Data v3 (opsional).
+  ytApiKey: "AIzaSyBJT03o2pl_2wSE54mWpoITz8a1zHrKi3A"
 };
 
-// Harga & jenis request DJ (kisaran Rp70.000 – Rp100.000). Ubah sesuai kebutuhan.
+// Harga & jenis request DJ
 var DJ_SERVICES = [
   { id: "sholawat", icon: "🕌", name: "DJ Sholawat", price: 70000,
     desc: "Remix sholawat dengan aransemen bass yang tetap nyaman didengar.",
@@ -30,27 +31,99 @@ var DJ_SERVICES = [
     features: ["Konsep & referensi bebas", "Diskusi detail sebelum dikerjakan", "Estimasi waktu disepakati saat pesan"] }
 ];
 
-var FLM_PRICE = 50000;   // harga beli project FLM (pilihan isi sendiri)
+var FLM_PRICE = 50000;
 
-/* DAFTAR PROJECT
-   unlockViews : target view yang membuka download -> 500 atau 1000
-   ytId        : ID video YouTube (11 karakter pada link youtube.com/watch?v=ID)
-   manualViews : jumlah view cadangan bila ytApiKey kosong / API gagal
-   downloadUrl : link tujuan saat download terbuka
-   category    : "DJ Trap" atau "DJ Sholawat"
-   Contoh di bawah hanya data percobaan. Ganti dengan project aslimu.
-   PROJECT BARU: tambahkan objek baru di PALING BAWAH array (jangan ubah yang lama). */
+// DAFTAR PROJECT
 var PROJECTS = [
-  { id: "contoh-1", name: "Contoh Project DJ Sholawat 1", fileName: "Contoh_DJ_Sholawat_1.flm", category: "DJ Sholawat",
-    ytId: "GANTI_ID_01", date: "2026-11-10", fileSize: "18 MB", fileType: "FLM (FL Studio Mobile)",
-    unlockViews: 1000, manualViews: 1250, downloadUrl: "https://example.com/download/1" },
-  { id: "contoh-2", name: "Contoh Project DJ Trap 1", fileName: "Contoh_DJ_Trap_1.flm", category: "DJ Trap",
-    ytId: "GANTI_ID_02", date: "2026-11-12", fileSize: "22 MB", fileType: "FLM (FL Studio Mobile)",
-    unlockViews: 500, manualViews: 320, downloadUrl: "https://example.com/download/2" },
-  { id: "contoh-3", name: "Contoh Project DJ Trap 2", fileName: "Contoh_DJ_Trap_2.flm", category: "DJ Trap",
-    ytId: "GANTI_ID_03", date: "2026-11-14", fileSize: "15 MB", fileType: "FLM (FL Studio Mobile)",
-    unlockViews: 1000, manualViews: 860, downloadUrl: "https://example.com/download/3" },
-  { id: "contoh-4", name: "Contoh Project DJ Sholawat 2", fileName: "Contoh_DJ_Sholawat_2.flm", category: "DJ Sholawat",
-    ytId: "GANTI_ID_04", date: "2026-11-15", fileSize: "20 MB", fileType: "FLM (FL Studio Mobile)",
-    unlockViews: 500, manualViews: 540, downloadUrl: "https://example.com/download/4" }
+  {
+    id: "1",
+    name: "DJ TRAP YA DANA DANA_TOMY-EKA-RMX.zip",
+    fileName: "DJ TRAP YA DANA DANA_TOMY-EKA-RMX.zip",
+    category: "DJ Trap",
+    ytId: "RBXPIe9ybaU",
+    date: "2026-05-06",
+    fileSize: "8,6 MB",
+    fileType: "ZIP",
+    unlockViews: 1000,
+    manualViews: 0,
+    downloadUrl: "https://sub4unlock.co/i2mO"
+  },
+  {
+    id: "2",
+    name: "DJ TRAP SHOLATUMMINALLAH_TOMYEKA-RMX.zip",
+    fileName: "DJ TRAP SHOLATUMMINALLAH_TOMYEKA-RMX.zip",
+    category: "DJ Sholawat",
+    ytId: "kKOXsIuLExg",
+    date: "2026-04-26",
+    fileSize: "6,8 MB",
+    fileType: "ZIP",
+    unlockViews: 1000,
+    manualViews: 0,
+    downloadUrl: "https://sub4unlock.co/LlUX9VdT"
+  },
+  {
+    id: "3",
+    name: "DJ TRAP ARABIC INNI UHIBBUKA_TOMYEKA-RMX.zip",
+    fileName: "DJ TRAP ARABIC INNI UHIBBUKA_TOMYEKA-RMX.zip",
+    category: "DJ Trap",
+    ytId: "IfAjHb5YUo4",
+    date: "2026-05-16",
+    fileSize: "11,8 MB",
+    fileType: "ZIP",
+    unlockViews: 1000,
+    manualViews: 0,
+    downloadUrl: "https://sub4unlock.co/3FrarU"
+  },
+  {
+    id: "4",
+    name: "DJ TRAP SHOLAWAT PASRAH_TOMYEKA-RMX.zip",
+    fileName: "DJ TRAP SHOLAWAT PASRAH_TOMYEKA-RMX.zip",
+    category: "DJ Sholawat",
+    ytId: "9bL_EHvdUCA",
+    date: "2026-05-29",
+    fileSize: "21,03 MB",
+    fileType: "ZIP",
+    unlockViews: 1000,
+    manualViews: 0,
+    downloadUrl: "https://sub4unlock.co/gU2N8"
+  },
+  {
+    id: "5",
+    name: "DJ TRAP HADROH HANYA SEBATANG KARA X ROHATIL (MAULID NABI).zip",
+    fileName: "DJ TRAP HADROH HANYA SEBATANG KARA X ROHATIL (MAULID NABI).zip",
+    category: "DJ Sholawat",
+    ytId: "XCk07X5rbdA",
+    date: "2026-06-20",
+    fileSize: "11,20 MB",
+    fileType: "ZIP",
+    unlockViews: 1000,
+    manualViews: 0,
+    downloadUrl: "https://sub4unlock.co/degPti"
+  },
+  {
+    id: "6",
+    name: "TRAP PALESTINE - ATOUNA EL TOUFOULE_TOMYEKA-RMX.zip",
+    fileName: "TRAP PALESTINE - ATOUNA EL TOUFOULE_TOMYEKA-RMX.zip",
+    category: "DJ Trap",
+    ytId: "VoxFZnajeaQ",
+    date: "2026-07-14",
+    fileSize: "10,0 MB",
+    fileType: "ZIP",
+    unlockViews: 1000,
+    manualViews: 0,
+    downloadUrl: "https://sub4unlock.co/CSbcI"
+  },
+  {
+    id: "7",
+    name: "DJ TRAP SYARAT JEJEGE NEGORO_TOMYEKA-RMX.zip",
+    fileName: "DJ TRAP SYARAT JEJEGE NEGORO_TOMYEKA-RMX.zip",
+    category: "DJ Trap",
+    ytId: "rek_mxXdZuc",
+    date: "2026-10-04",
+    fileSize: "3,17 MB",
+    fileType: "ZIP",
+    unlockViews: 1000,
+    manualViews: 0,
+    downloadUrl: "https://sub4unlock.co/tOyd"
+  }
 ];
