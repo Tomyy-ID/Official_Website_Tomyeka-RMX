@@ -9,19 +9,19 @@
 var SITE = {
   name: "Tomy Eka RMX",
   // Nomor WhatsApp Business, format internasional tanpa + dan tanpa spasi. Contoh: 6281234567890
-  waNumber: "62XXXXXXXXXXX",
+  waNumber: "6288980517964",
   youtubeChannel: "https://www.youtube.com/@TomyEkaRMX",   // GANTI dengan link channel asli
   instagram: "",
   tiktok: "",
-  email: "",
+  email: "ekaardianto4565@gmail.com",
   // API key YouTube Data v3 (opsional).
   ytApiKey: "AIzaSyBJT03o2pl_2wSE54mWpoITz8a1zHrKi3A"
 };
 
 // Harga & jenis request DJ
 var DJ_SERVICES = [
-  { id: "sholawat", icon: "🕌", name: "DJ Sholawat", price: 70000,
-    desc: "Remix sholawat dengan aransemen bass yang tetap nyaman didengar.",
+  { id: "sholawat", icon: "🕌", name: "DJ Trap Sholawat", price: 70000,
+    desc: "Dj Trap sholawat dengan aransemen & bass yang sopan serta nyaman didengar.",
     features: ["Request lagu / sholawat pilihanmu", "Konsultasi langsung via WhatsApp", "Estimasi waktu disepakati saat pesan"] },
   { id: "trap", icon: "🔥", name: "DJ Trap", price: 85000, popular: true,
     desc: "Remix gaya trap dengan drop dan bass yang kuat.",
@@ -37,9 +37,9 @@ var FLM_PRICE = 50000;
 var PROJECTS = [
   {
     id: "1",
-    name: "DJ TRAP YA DANA DANA_TOMY-EKA-RMX.zip",
+    name: "DJ TRAP YA DANA DANA_TOMY-EKA-RMX",
     fileName: "DJ TRAP YA DANA DANA_TOMY-EKA-RMX.zip",
-    category: "DJ Trap",
+    category: "Sholawat",
     ytId: "RBXPIe9ybaU",
     date: "2026-05-06",
     fileSize: "8,6 MB",
@@ -50,9 +50,9 @@ var PROJECTS = [
   },
   {
     id: "2",
-    name: "DJ TRAP SHOLATUMMINALLAH_TOMYEKA-RMX.zip",
+    name: "DJ TRAP SHOLATUMMINALLAH_TOMYEKA-RMX",
     fileName: "DJ TRAP SHOLATUMMINALLAH_TOMYEKA-RMX.zip",
-    category: "DJ Sholawat",
+    category: "Sholawat",
     ytId: "kKOXsIuLExg",
     date: "2026-04-26",
     fileSize: "6,8 MB",
@@ -63,9 +63,9 @@ var PROJECTS = [
   },
   {
     id: "3",
-    name: "DJ TRAP ARABIC INNI UHIBBUKA_TOMYEKA-RMX.zip",
+    name: "DJ TRAP ARABIC INNI UHIBBUKA_TOMYEKA-RMX",
     fileName: "DJ TRAP ARABIC INNI UHIBBUKA_TOMYEKA-RMX.zip",
-    category: "DJ Trap",
+    category: "Arabic",
     ytId: "IfAjHb5YUo4",
     date: "2026-05-16",
     fileSize: "11,8 MB",
@@ -76,9 +76,9 @@ var PROJECTS = [
   },
   {
     id: "4",
-    name: "DJ TRAP SHOLAWAT PASRAH_TOMYEKA-RMX.zip",
+    name: "DJ TRAP SHOLAWAT PASRAH_TOMYEKA-RMX",
     fileName: "DJ TRAP SHOLAWAT PASRAH_TOMYEKA-RMX.zip",
-    category: "DJ Sholawat",
+    category: "Religi",
     ytId: "9bL_EHvdUCA",
     date: "2026-05-29",
     fileSize: "21,03 MB",
@@ -89,9 +89,9 @@ var PROJECTS = [
   },
   {
     id: "5",
-    name: "DJ TRAP HADROH HANYA SEBATANG KARA X ROHATIL (MAULID NABI).zip",
+    name: "DJ TRAP HADROH HANYA SEBATANG KARA X ROHATIL (MAULID NABI)",
     fileName: "DJ TRAP HADROH HANYA SEBATANG KARA X ROHATIL (MAULID NABI).zip",
-    category: "DJ Sholawat",
+    category: "Sholawat X Religi",
     ytId: "XCk07X5rbdA",
     date: "2026-06-20",
     fileSize: "11,20 MB",
@@ -102,9 +102,9 @@ var PROJECTS = [
   },
   {
     id: "6",
-    name: "TRAP PALESTINE - ATOUNA EL TOUFOULE_TOMYEKA-RMX.zip",
+    name: "TRAP PALESTINE - ATOUNA EL TOUFOULE_TOMYEKA-RMX",
     fileName: "TRAP PALESTINE - ATOUNA EL TOUFOULE_TOMYEKA-RMX.zip",
-    category: "DJ Trap",
+    category: "Arabic",
     ytId: "VoxFZnajeaQ",
     date: "2026-07-14",
     fileSize: "10,0 MB",
@@ -115,9 +115,9 @@ var PROJECTS = [
   },
   {
     id: "7",
-    name: "DJ TRAP SYARAT JEJEGE NEGORO_TOMYEKA-RMX.zip",
+    name: "DJ TRAP SYARAT JEJEGE NEGORO_TOMYEKA-RMX",
     fileName: "DJ TRAP SYARAT JEJEGE NEGORO_TOMYEKA-RMX.zip",
-    category: "DJ Trap",
+    category: "Religi",
     ytId: "rek_mxXdZuc",
     date: "2026-10-04",
     fileSize: "3,17 MB",

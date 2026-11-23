@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tomy Eka RMX – Project FLM DJ Trap & DJ Sholawat</title>
+<title>Tomy Eka RMX – Official Website</title>
 <meta name="description" content="Website resmi Tomy Eka RMX: download project FLM DJ Trap dan DJ Sholawat, lihat profil channel YouTube, dan order DJ lewat WhatsApp Business.">
 <meta name="theme-color" content="#07070d">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Tomy Eka RMX – Project FLM DJ Trap & DJ Sholawat">
+<meta property="og:title" content="Tomy Eka RMX – Official Website">
 <meta property="og:description" content="Download project FLM, lihat profil channel, dan order DJ via WhatsApp Business.">
 <meta property="og:locale" content="id_ID">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎧</text></svg>">
@@ -263,18 +263,156 @@ details.faq p{color:#c3c8dc;margin-top:10px;font-size:.96rem}
 .tut-tip{margin-top:20px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:.9rem;color:#c3c8dc}
 .tut-tip ul{margin:8px 0 0 18px;color:var(--muted)}
 .tut-tip li{margin-bottom:4px}
+
+/* =========================================================
+   BLOK CSS 11 — ANIMASI (blok tambahan, tidak mengubah blok di atasnya)
+   Semua nama kelas dan keyframes diawali "an-" agar tidak bentrok.
+   Hapus blok CSS 11 dan blok JS 9 bila ingin menghilangkan semua animasi.
+   ========================================================= */
+
+/* --- Bilah progress scroll, glow kursor, partikel latar --- */
+.an-progress{position:fixed;top:0;left:0;width:100%;height:3px;z-index:200;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#7c3aed,#22d3ee,#f5b301);box-shadow:0 0 12px rgba(34,211,238,.7);pointer-events:none;transition:transform .12s linear}
+.an-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.an-spot{position:fixed;left:0;top:0;width:560px;height:560px;margin:-280px 0 0 -280px;border-radius:50%;z-index:-1;pointer-events:none;opacity:0;transition:opacity .5s;background:radial-gradient(circle,rgba(124,58,237,.17),rgba(6,182,212,.07) 45%,transparent 70%);will-change:transform}
+.an-spot.on{opacity:1}
+
+/* --- Header: bayangan saat halaman digulir, garis bawah menu yang meluncur --- */
+.site-header{transition:box-shadow .3s,background .3s}
+.site-header.an-scrolled{background:rgba(7,7,13,.94);box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.main-nav a:not(.nav-order){position:relative}
+.main-nav a:not(.nav-order)::after{content:"";position:absolute;left:14px;right:14px;bottom:3px;height:2px;border-radius:2px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.main-nav a:not(.nav-order):hover::after,.main-nav a.active:not(.nav-order)::after{transform:scaleX(1)}
+.main-nav a.nav-order{animation:an-pulse-gold 2.8s ease-out infinite}
+
+/* --- Logo piringan hitam berputar --- */
+.disc{animation:an-spin 7s linear infinite,an-glow 3s ease-in-out infinite alternate}
+.brand:hover .disc{box-shadow:0 0 0 2px #3a3a5c,0 0 26px rgba(34,211,238,.65)}
+@keyframes an-spin{to{transform:rotate(360deg)}}
+@keyframes an-glow{from{box-shadow:0 0 0 2px #2c2c44,0 0 12px rgba(124,58,237,.35)}to{box-shadow:0 0 0 2px #2c2c44,0 0 24px rgba(34,211,238,.55)}}
+
+/* --- Hero: aurora bergerak, masuk berurutan, judul berkilau, not musik melayang --- */
+.hero{isolation:isolate}
+.hero::before,.hero::after{content:"";position:absolute;z-index:-1;border-radius:50%;filter:blur(70px);pointer-events:none;will-change:transform}
+.hero::before{width:380px;height:380px;left:-80px;top:-120px;background:rgba(124,58,237,.55);animation:an-float-a 14s ease-in-out infinite alternate}
+.hero::after{width:340px;height:340px;right:-70px;bottom:-110px;background:rgba(6,182,212,.42);animation:an-float-b 17s ease-in-out infinite alternate}
+@keyframes an-float-a{to{transform:translate(170px,90px) scale(1.25)}}
+@keyframes an-float-b{to{transform:translate(-200px,-70px) scale(1.2)}}
+.hero>.eyebrow,.hero>p,.hero>.hero-cta{animation:an-rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero>.eyebrow{animation-delay:.05s}
+.hero>p{animation-delay:.3s}
+.hero>.hero-cta{animation-delay:.45s}
+.hero>h1{background-image:linear-gradient(100deg,#fff 0%,#c4b5fd 25%,#67e8f9 50%,#c4b5fd 75%,#fff 100%);background-size:200% 100%;animation:an-rise .9s cubic-bezier(.2,.8,.2,1) .15s both,an-shine 7s linear infinite}
+@keyframes an-rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes an-shine{from{background-position:0 50%}to{background-position:200% 50%}}
+.an-note{position:absolute;bottom:-30px;z-index:-1;line-height:1;pointer-events:none;opacity:0;animation:an-note 12s linear infinite}
+@keyframes an-note{0%{opacity:0;transform:translateY(0) rotate(-12deg)}12%{opacity:1}85%{opacity:.85}100%{opacity:0;transform:translateY(-540px) rotate(18deg)}}
+@media (max-width:640px){.an-note{display:none}}
+.hero-cta .btn-gold{animation:an-pulse-gold 2.8s ease-out infinite}
+.cta-band .btn-red{animation:an-pulse-red 2.8s ease-out infinite}
+@keyframes an-pulse-gold{0%{box-shadow:0 4px 18px rgba(245,179,1,.35),0 0 0 0 rgba(245,179,1,.55)}70%{box-shadow:0 4px 18px rgba(245,179,1,.35),0 0 0 14px rgba(245,179,1,0)}100%{box-shadow:0 4px 18px rgba(245,179,1,.35),0 0 0 0 rgba(245,179,1,0)}}
+@keyframes an-pulse-red{0%{box-shadow:0 0 0 0 rgba(220,38,38,.55)}70%{box-shadow:0 0 0 14px rgba(220,38,38,0)}100%{box-shadow:0 0 0 0 rgba(220,38,38,0)}}
+
+/* --- Tombol: kilau saat disentuh dan efek riak saat diklik --- */
+.btn,.chip{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s ease;pointer-events:none}
+.btn:hover::after{left:130%}
+.btn[disabled]::after{display:none}
+.an-ripple{position:absolute;border-radius:50%;pointer-events:none;background:rgba(255,255,255,.45);transform:scale(0);animation:an-ripple .65s ease-out forwards}
+@keyframes an-ripple{to{transform:scale(1);opacity:0}}
+
+/* --- Kartu project dan harga: zoom thumbnail, sorot kursor, miring 3D --- */
+.pthumb{overflow:hidden}
+.pthumb .timg{transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.pthumb:hover .timg{transform:scale(1.07)}
+.pcard{position:relative}
+.price{transition:transform .25s ease,box-shadow .3s ease}
+.pcard::before,.price::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;z-index:1;transition:opacity .3s;background:radial-gradient(420px circle at var(--an-mx,50%) var(--an-my,50%),rgba(167,139,250,.2),transparent 55%)}
+.pcard:hover::before,.price:hover::before{opacity:1}
+@media (hover:hover) and (pointer:fine){
+  .pcard:hover{transform:perspective(900px) rotateX(var(--an-rx,0deg)) rotateY(var(--an-ry,0deg)) translateY(-6px)}
+  .price:hover{transform:perspective(900px) rotateX(var(--an-rx,0deg)) rotateY(var(--an-ry,0deg)) translateY(-4px)}
+}
+.lockb:not(.open){animation:an-wiggle 5s ease-in-out infinite}
+.pcard:nth-child(2n) .lockb{animation-delay:-1.3s}
+.pcard:nth-child(3n) .lockb{animation-delay:-2.7s}
+.lockb.open{animation:an-glow-green 2.4s ease-in-out infinite}
+@keyframes an-wiggle{0%,86%,100%{transform:rotate(0)}89%{transform:rotate(-7deg)}92%{transform:rotate(6deg)}95%{transform:rotate(-4deg)}98%{transform:rotate(2deg)}}
+@keyframes an-glow-green{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}50%{box-shadow:0 0 0 8px rgba(34,197,94,0)}}
+.price .ic{animation:an-bob 3.6s ease-in-out infinite}
+.price:nth-child(2) .ic{animation-delay:-1.2s}
+.price:nth-child(3) .ic{animation-delay:-2.4s}
+@keyframes an-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* --- Progress view, tombol play, alur tutorial --- */
+.bar>i{position:relative;overflow:hidden;animation:an-grow 1.3s cubic-bezier(.2,.8,.2,1) both}
+.bar>i::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.55) 50%,transparent 80%);transform:translateX(-100%);animation:an-sweep 2.4s ease-in-out infinite}
+@keyframes an-grow{from{width:0}}
+@keyframes an-sweep{to{transform:translateX(100%)}}
+.play span{animation:an-ring 2.2s ease-out infinite}
+@keyframes an-ring{0%{box-shadow:0 8px 28px rgba(0,0,0,.5),0 0 0 0 rgba(220,38,38,.55)}70%{box-shadow:0 8px 28px rgba(0,0,0,.5),0 0 0 22px rgba(220,38,38,0)}100%{box-shadow:0 8px 28px rgba(0,0,0,.5),0 0 0 0 rgba(220,38,38,0)}}
+.chain i{display:inline-block;animation:an-nudge 1.4s ease-in-out infinite}
+@keyframes an-nudge{0%,100%{transform:translateX(0);opacity:.6}50%{transform:translateX(6px);opacity:1}}
+.chain span{transition:transform .25s,box-shadow .25s}
+.chain span:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(124,58,237,.35)}
+.tut-steps .n{transition:transform .25s}
+.tut-steps li:hover .n{transform:scale(1.15) rotate(-8deg)}
+
+/* --- Profil, kontak, FAQ, footer --- */
+.avatar{animation:an-float 6s ease-in-out infinite}
+.avatar::after{content:"";position:absolute;inset:-50%;pointer-events:none;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.28) 50%,transparent 60%);transform:translateX(-60%);animation:an-sheen 5s ease-in-out infinite}
+@keyframes an-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes an-sheen{0%,55%{transform:translateX(-60%)}100%{transform:translateX(60%)}}
+.tl::before{animation:an-dot 2.6s ease-in-out infinite}
+@keyframes an-dot{0%,100%{box-shadow:0 0 0 4px var(--bg),0 0 0 4px rgba(124,58,237,0)}50%{box-shadow:0 0 0 4px var(--bg),0 0 0 11px rgba(124,58,237,.2)}}
+.skills span{transition:transform .2s,background .2s}
+.skills span:hover{transform:translateY(-3px) scale(1.06);background:rgba(124,58,237,.3)}
+.step .n{transition:transform .25s}
+.step:hover .n{transform:scale(1.15) rotate(-8deg)}
+.ccard{transition:transform .25s,box-shadow .25s,border-color .2s}
+.ccard:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.ccard .ic{transition:filter .3s}
+.ccard:hover .ic{filter:drop-shadow(0 0 10px rgba(167,139,250,.85))}
+details.faq[open] p{animation:an-fade .4s ease both}
+@keyframes an-fade{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.site-footer{position:relative}
+.site-footer::before{content:"";position:absolute;top:-1px;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#7c3aed,#22d3ee,#f5b301,transparent);background-size:200% 100%;animation:an-flow 6s linear infinite}
+@keyframes an-flow{to{background-position:-200% 0}}
+
+/* --- Muncul saat digulir (kelas diberikan lalu dilepas oleh JS setelah selesai) --- */
+.an-rv{opacity:0;translate:0 34px;scale:.97;transition:opacity .75s cubic-bezier(.2,.8,.2,1),translate .75s cubic-bezier(.2,.8,.2,1),scale .75s cubic-bezier(.2,.8,.2,1),transform .2s,border-color .2s,box-shadow .2s;transition-delay:var(--an-d,0s)}
+.an-rv.an-in{opacity:1;translate:0 0;scale:1}
+
+/* --- Pengguna yang memilih mengurangi gerak: semua animasi tambahan dimatikan --- */
+@media (prefers-reduced-motion:reduce){
+  .an-rv{opacity:1!important;translate:none!important;scale:none!important}
+  .an-canvas,.an-spot,.an-note,.hero::before,.hero::after{display:none!important}
+}
+  
+  /* =========================================================
+   BLOK CSS 12 — TOMBOL "SUBSCRIBE YOUTUBE" DI HERO HOME BERWARNA MERAH
+   (blok tambahan; warna merah sama dengan .btn-red. Ubah #dc2626 bila ingin warna lain)
+   ========================================================= */
+.hero-cta #hero-yt{background:#dc2626;border-color:#dc2626;color:#fff;box-shadow:0 4px 18px rgba(220,38,38,.35)}
+.hero-cta #hero-yt:hover{background:#ef4444;border-color:#ef4444}
+.hero-cta #hero-yt{animation:an-pulse-red-glow 2.8s ease-out infinite}
+@keyframes an-pulse-red-glow{0%{box-shadow:0 4px 18px rgba(220,38,38,.35),0 0 0 0 rgba(220,38,38,.55)}70%{box-shadow:0 4px 18px rgba(220,38,38,.35),0 0 0 14px rgba(220,38,38,0)}100%{box-shadow:0 4px 18px rgba(220,38,38,.35),0 0 0 0 rgba(220,38,38,0)}}
+.hero-cta a[href="#/project"]{animation:an-pulse-violet 2.8s ease-out infinite}
+@keyframes an-pulse-violet{0%{box-shadow:0 4px 18px rgba(124,58,237,.35),0 0 0 0 rgba(124,58,237,.55)}70%{box-shadow:0 4px 18px rgba(124,58,237,.35),0 0 0 14px rgba(124,58,237,0)}100%{box-shadow:0 4px 18px rgba(124,58,237,.35),0 0 0 0 rgba(124,58,237,0)}}
 </style>
 </head>
 
+
 <body>
 <noscript><p style="padding:20px;text-align:center">Website ini membutuhkan JavaScript. Mohon aktifkan JavaScript di peramban Anda.</p></noscript>
+
+  
 
 <!-- ===================== HEADER ===================== -->
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="#/" aria-label="Tomy Eka RMX — Beranda">
       <span class="disc" aria-hidden="true"></span>
-      <span>Tomy Eka RMX<small>DJ Trap · DJ Sholawat</small></span>
+      <span>Tomy Eka RMX<small>OFFICIAL WEBSITE</small></span>
     </a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Buka menu" aria-expanded="false" aria-controls="main-nav">☰</button>
     <nav class="main-nav" id="main-nav" aria-label="Menu utama">
@@ -297,8 +435,8 @@ details.faq p{color:#c3c8dc;margin-top:10px;font-size:.96rem}
     data-title="Tomy Eka RMX – Project FLM DJ Trap & DJ Sholawat"
     data-desc="Website resmi Tomy Eka RMX: download project FLM DJ Trap dan DJ Sholawat, profil channel YouTube, dan order DJ via WhatsApp Business.">
     <div class="hero">
-      <span class="eyebrow">Website Resmi</span>
-      <h1>Project FLM DJ Trap & DJ Sholawat</h1>
+      <span class="eyebrow">SELAMAT DATANG DI</span>
+      <h1>Website Official Tomy Eka RMX</h1>
       <p>Tonton videonya di YouTube, capai target view, lalu unduh file project FLM-nya. Mau request DJ khusus? Pesan langsung lewat WhatsApp Business.</p>
       <div class="hero-cta">
         <a class="btn" href="#/project">🎧 Lihat Project</a>
@@ -330,36 +468,75 @@ details.faq p{color:#c3c8dc;margin-top:10px;font-size:.96rem}
     </div>
   </section>
 
-  <!-- ---------- PROFIL ---------- -->
-  <section class="page" data-route="profil" hidden
-    data-title="Profil – Tomy Eka RMX"
-    data-desc="Profil Tomy Eka dan sejarah singkat channel YouTube Tomy Eka RMX.">
-    <span class="eyebrow">Profil</span>
-    <h1 class="page-title">Mengenal Tomy Eka RMX</h1>
-    <p class="page-sub">Kreator konten musik di balik channel YouTube Tomy Eka RMX.</p>
-    <div class="profile">
-      <!-- Untuk foto asli: ganti isi div.avatar dengan <img src="foto.jpg" alt="Tomy Eka"> -->
-      <div class="avatar" aria-label="Foto profil">TE</div>
-      <div style="display:grid;gap:20px">
-        <div class="panel">
-          <h2>Tentang Saya</h2>
-          <p>Saya Tomy Eka, pembuat konten di balik channel YouTube <strong>Tomy Eka RMX</strong>. Fokus saya adalah remix DJ bergenre trap dan DJ sholawat, yang saya garap sendiri menggunakan FL Studio Mobile.</p>
-          <p>Selain membagikan video, saya juga membagikan file project FLM agar teman-teman bisa belajar, mengolah ulang, dan berkreasi.</p>
-          <div class="skills"><span>DJ Trap</span><span>DJ Sholawat</span><span>FL Studio Mobile</span><span>Remix & Aransemen</span></div>
+<!-- ---------- PROFIL ---------- -->
+<section class="page" data-route="profil" hidden
+  data-title="Profil – Tomy Eka RMX"
+  data-desc="Profil Tomy Eka dan perjalanan channel YouTube Tomy Eka RMX.">
+
+  <span class="eyebrow">Profil</span>
+  <h1 class="page-title">Mengenal Tomy Eka RMX</h1>
+  <p class="page-sub">Perjalanan saya dalam belajar dan berkarya di dunia musik DJ Slow Bass & Trap Sholawat.</p>
+
+  <div class="profile">
+    <!-- Foto profil asli -->
+    <div class="avatar" aria-label="Foto profil">
+      <img src="foto-tomy.jpg" alt="Tomy Eka Ardianto">
+    </div>
+
+    <div style="display:grid;gap:20px">
+      <div class="panel">
+        <h2>Tentang Saya</h2>
+        <p>Saya Tomy Eka Ardianto, kreator di balik channel YouTube <strong>Tomy Eka RMX «⟨BSB⟩»</strong>. Saya membuat musik Dj Slow Bass dan Trap Sholawat menggunakan FL Studio Mobile.</p>
+
+        <p>Selain membagikan video musik, saya juga membagikan project FLM hasil karya sendiri secara gratis agar bisa digunakan teman-teman untuk belajar dan berkreasi.</p>
+
+        <p>Dalam membuat Dj Trap Sholawat, saya lebih menyukai aransemen yang sopan, tidak berlebihan, dan memiliki banyak melodi agar nyaman didengar.</p>
+
+        <div class="skills">
+          <span>Tomy Eka RMX</span>
+          <span>FL Studio Mobile</span>
+          <span>FREE FLM</span>
+          <span>Dj Trap Sholawat</span>
+          <span>Wzx Project</span>
         </div>
-        <div class="panel">
-          <h2>Sejarah Singkat Channel YouTube</h2>
-          <!-- EDIT: ganti teks tahap di bawah dengan sejarah asli beserta tahunnya. -->
-          <div class="timeline">
-            <div class="tl"><h3>Awal Mula</h3><p>Tomy Eka RMX berawal dari kecintaan pada musik dan keinginan membuat remix DJ sendiri, lalu membagikannya lewat YouTube.</p></div>
-            <div class="tl"><h3>Mulai Berbagi Project</h3><p>Selain video, file project FLM mulai dibagikan supaya teman-teman bisa belajar dan berkreasi.</p></div>
-            <div class="tl"><h3>Hadir dengan DJ Sholawat</h3><p>Konten berkembang ke DJ sholawat dengan aransemen bass yang tetap nyaman didengar.</p></div>
-            <div class="tl"><h3>Sampai Hari Ini</h3><p>Website resmi ini hadir sebagai pusat project, download, dan layanan order.</p></div>
+      </div>
+
+      <div class="panel">
+        <h2>Perjalanan Tomy Eka RMX</h2>
+
+        <div class="timeline">
+          <div class="tl">
+            <h3>2019 – Awal di YouTube</h3>
+            <p>Saya pertama kali membuat channel YouTube bertema gaming selama sekitar dua bulan. Waktu itu masih SD banget, hehe.</p>
+          </div>
+
+          <div class="tl">
+            <h3>Mulai Mengenal DJ</h3>
+            <p>Saya mulai tertarik dengan musik DJ, terutama DJ Horeg. Saya mencoba mengunggah video DJ full bass. Saat itu saya terinspirasi dari 69 Project, kemudian R2 Project.</p>
+          </div>
+
+          <div class="tl">
+            <h3>Belajar FL Studio Mobile</h3>
+            <p>Saya mulai belajar membuat DJ sendiri menggunakan FL Studio Mobile secara otodidak. Banyak belajar dari project FLM teman-teman di YouTube hingga perlahan bisa membuat aransemen sendiri.</p>
+          </div>
+
+          <div class="tl">
+            <h3>Mengenal DJ Sholawat</h3>
+            <p>Saya juga terinspirasi dari style WZX Project atau Mas Ojie Saputra. Saya menyukai DJ Sholawat dengan banyak melodi, sopan, dan tidak berlebihan. Dari situ saya terus belajar mengembangkan style sendiri.</p>
+          </div>
+
+          <div class="tl">
+            <h3>Sampai Sekarang</h3>
+            <p>Sampai sekarang saya tetap membuat DJ Remix dan DJ Sholawat dengan ciri khas yang sopan dan nyaman didengar, tanpa harus mengikuti tren yang berlebihan.</p>
+            <p>Saya juga terus berbagi project FLM secara gratis agar teman-teman bisa ikut belajar dan berkarya.</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+
 
   <!-- ---------- DAFTAR PROJECT ---------- -->
   <section class="page" data-route="project" hidden
@@ -371,8 +548,9 @@ details.faq p{color:#c3c8dc;margin-top:10px;font-size:.96rem}
     <div class="toolbar"><input class="input" id="project-q" type="search" placeholder="Cari nama project…" aria-label="Cari project"></div>
     <div class="chips" id="project-chips">
       <button class="chip active" data-f="all">Semua</button>
-      <button class="chip" data-f="DJ Trap">DJ Trap</button>
-      <button class="chip" data-f="DJ Sholawat">DJ Sholawat</button>
+      <button class="chip" data-f="Arabic">Arabic</button>
+      <button class="chip" data-f="Religi">Religi</button>
+      <button class="chip" data-f="Sholawat">Sholawat</button>
       <button class="chip" data-f="open">✅ Terbuka</button>
       <button class="chip" data-f="locked">🔒 Terkunci</button>
     </div>
@@ -654,7 +832,7 @@ function renderHome(){
     '<div class="stat"><b>' + PROJECTS.length + '</b><span>Project FLM</span></div>' +
     '<div class="stat"><b>' + open + '</b><span>Download terbuka</span></div>' +
     '<div class="stat"><b>500 · 1K</b><span>Target view</span></div>' +
-    '<div class="stat"><b>2</b><span>Genre: Trap & Sholawat</span></div>';
+    '<div class="stat"><b>2.543</b><span>Jumlah Subscriber</span></div>';
   $('#home-latest').innerHTML = newestFirst().slice(0, 3).map(projectCard).join('');
 }
 
@@ -858,6 +1036,228 @@ $('#dj-form').addEventListener('submit', function(e){
   }
   document.addEventListener('page:show', render);
   document.addEventListener('views:updated', render);
+})();
+
+/* =========================================================
+   BLOK JS 9 — ANIMASI (blok tambahan, tidak mengubah blok di atasnya)
+   Setiap fitur dibungkus safe() supaya bila ada yang gagal,
+   website tetap berjalan normal. Gaya ada di BLOK CSS 11.
+   ========================================================= */
+(function(){
+  'use strict';
+  var RM = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var FINE = !!(window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches);
+  var raf = window.requestAnimationFrame ? function(f){ return window.requestAnimationFrame(f); } : function(f){ return setTimeout(function(){ f(Date.now()); }, 16); };
+  function safe(fn){ try { fn(); } catch (err) { /* animasi tidak boleh merusak website */ } }
+
+  /* 1. Bilah progress scroll dan bayangan header */
+  safe(function(){
+    var bar = document.createElement('div');
+    bar.className = 'an-progress';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+    var header = document.querySelector('.site-header'), ticking = false;
+    function update(){
+      var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+      var y = window.pageYOffset || h.scrollTop || 0;
+      bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
+      if (header) header.classList.toggle('an-scrolled', y > 8);
+      ticking = false;
+    }
+    function req(){ if (!ticking) { ticking = true; raf(update); } }
+    window.addEventListener('scroll', req, { passive: true });
+    window.addEventListener('resize', req);
+    document.addEventListener('page:show', function(){ raf(update); });
+    update();
+  });
+
+  /* 2. Not musik yang melayang di hero */
+  safe(function(){
+    if (RM) return;
+    var hero = document.querySelector('.hero');
+    if (!hero) return;
+    var glyphs = ['♪', '♫', '♬', '♩'];
+    var colors = ['rgba(167,139,250,.55)', 'rgba(103,232,249,.5)', 'rgba(255,209,102,.5)'];
+    for (var i = 0; i < 9; i++) {
+      var n = document.createElement('span');
+      n.className = 'an-note';
+      n.setAttribute('aria-hidden', 'true');
+      n.textContent = glyphs[i % glyphs.length];
+      n.style.left = (i % 2 ? 3 + Math.random() * 14 : 83 + Math.random() * 14).toFixed(1) + '%';   // hanya di sisi kiri/kanan agar teks tetap bersih
+      n.style.fontSize = (18 + Math.random() * 22).toFixed(0) + 'px';
+      n.style.color = colors[i % colors.length];
+      n.style.animationDuration = (9 + Math.random() * 8).toFixed(1) + 's';
+      n.style.animationDelay = (-Math.random() * 14).toFixed(1) + 's';
+      hero.appendChild(n);
+    }
+  });
+
+  /* 3. Muncul bertahap saat digulir + angka statistik menghitung naik */
+  var REVEAL = '.stat,.step,.pcard,.price,.panel,.cta-band,.ccard,details.faq,.tl,.flm,.dl';
+  var skipUntil = 0;
+  safe(function(){
+    if (RM || !('IntersectionObserver' in window)) return;
+    var host = document.getElementById('content');
+    if (!host) return;
+
+    function countUp(el){
+      var b = el.classList.contains('stat') ? el.querySelector('b') : null;
+      if (!b) return;
+      var txt = b.textContent.trim();
+      if (!/^\d{1,5}$/.test(txt) || +txt === 0) return;
+      var to = +txt, t0 = performance.now(), dur = 1100;
+      b.textContent = '0';
+      (function tick(){
+        var p = Math.min(1, (performance.now() - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        b.textContent = p < 1 ? String(Math.round(to * e)) : txt;
+        if (p < 1) raf(tick);
+      })();
+    }
+
+    var io = new IntersectionObserver(function(entries){
+      var idx = 0;
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        var el = en.target, delay = Math.min(idx++, 6) * 0.08;
+        io.unobserve(el);
+        el.style.setProperty('--an-d', delay + 's');
+        countUp(el);
+        el.classList.add('an-in');
+        setTimeout(function(){
+          el.classList.remove('an-rv', 'an-in');
+          el.style.removeProperty('--an-d');
+        }, 1400 + delay * 1000);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+    function scan(root){
+      if (!root || root.nodeType !== 1) return;
+      var list = [];
+      if (root.matches(REVEAL)) list.push(root);
+      list = list.concat([].slice.call(root.querySelectorAll(REVEAL)));
+      var skip = performance.now() < skipUntil;
+      list.forEach(function(el){
+        if (el.hasAttribute('data-an')) return;
+        if (skip) { el.setAttribute('data-an', '0'); return; }   // render ulang karena data view: tanpa animasi
+        el.setAttribute('data-an', '1');
+        el.classList.add('an-rv');
+        io.observe(el);
+      });
+    }
+
+    new MutationObserver(function(muts){
+      muts.forEach(function(m){
+        [].forEach.call(m.addedNodes, scan);
+      });
+    }).observe(host, { childList: true, subtree: true });
+
+    scan(host);
+    document.addEventListener('page:show', function(){ scan(host); });
+    document.addEventListener('views:updated', function(){ skipUntil = performance.now() + 150; });
+  });
+
+  /* 4. Efek riak saat tombol atau chip diklik */
+  safe(function(){
+    if (RM) return;
+    document.addEventListener('pointerdown', function(e){
+      var t = e.target && e.target.closest ? e.target.closest('.btn,.chip') : null;
+      if (!t || t.disabled) return;
+      var r = t.getBoundingClientRect(), d = Math.max(r.width, r.height) * 2;
+      var s = document.createElement('span');
+      s.className = 'an-ripple';
+      s.style.cssText = 'width:' + d + 'px;height:' + d + 'px;left:' + (e.clientX - r.left - d / 2) + 'px;top:' + (e.clientY - r.top - d / 2) + 'px';
+      t.appendChild(s);
+      setTimeout(function(){ if (s.parentNode) s.parentNode.removeChild(s); }, 700);
+    }, { passive: true });
+  });
+
+  /* 5. Glow yang mengikuti kursor + kartu miring 3D (hanya perangkat dengan mouse) */
+  safe(function(){
+    if (RM || !FINE) return;
+    var spot = document.createElement('div');
+    spot.className = 'an-spot';
+    spot.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(spot);
+    var mx = 0, my = 0, card = null, last = null, pending = false;
+    function paint(){
+      pending = false;
+      spot.style.transform = 'translate3d(' + mx + 'px,' + my + 'px,0)';
+      if (last && last !== card) {
+        ['--an-rx', '--an-ry', '--an-mx', '--an-my'].forEach(function(k){ last.style.removeProperty(k); });
+        last = null;
+      }
+      if (card) {
+        var r = card.getBoundingClientRect();
+        var px = (mx - r.left) / (r.width || 1), py = (my - r.top) / (r.height || 1);
+        card.style.setProperty('--an-mx', (px * 100).toFixed(1) + '%');
+        card.style.setProperty('--an-my', (py * 100).toFixed(1) + '%');
+        card.style.setProperty('--an-rx', ((0.5 - py) * 9).toFixed(2) + 'deg');
+        card.style.setProperty('--an-ry', ((px - 0.5) * 11).toFixed(2) + 'deg');
+        last = card;
+      }
+    }
+    function sched(){ if (!pending) { pending = true; raf(paint); } }
+    document.addEventListener('pointermove', function(e){
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      mx = e.clientX; my = e.clientY;
+      card = e.target && e.target.closest ? e.target.closest('.pcard,.price') : null;
+      spot.classList.add('on');
+      sched();
+    }, { passive: true });
+    document.documentElement.addEventListener('mouseleave', function(){
+      spot.classList.remove('on'); card = null; sched();
+    });
+  });
+
+  /* 6. Partikel bercahaya di latar belakang (berhenti saat tab tidak aktif) */
+  safe(function(){
+    if (RM) return;
+    var cv = document.createElement('canvas');
+    cv.className = 'an-canvas';
+    cv.setAttribute('aria-hidden', 'true');
+    document.body.insertBefore(cv, document.body.firstChild);
+    var ctx = cv.getContext('2d');
+    if (!ctx) return;
+    var W = 0, H = 0, dpr = Math.min(2, window.devicePixelRatio || 1), ps = [], looping = false;
+    var pal = ['167,139,250', '34,211,238', '245,179,1'];
+    function make(){
+      var d = Math.random();
+      return { x: Math.random() * W, y: Math.random() * H, r: 0.6 + d * 2, d: d, vy: 0.12 + d * 0.42,
+               ph: Math.random() * 6.28, c: pal[(Math.random() * 3) | 0], a: 0.18 + d * 0.45 };
+    }
+    function size(){
+      W = window.innerWidth; H = window.innerHeight;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var n = W < 700 ? 24 : Math.min(60, Math.round(W * H / 24000));
+      while (ps.length < n) ps.push(make());
+      ps.length = n;
+    }
+    function frame(t){
+      if (document.hidden) { looping = false; return; }
+      ctx.clearRect(0, 0, W, H);
+      var sy = window.pageYOffset || 0, span = H + 24;
+      for (var i = 0; i < ps.length; i++) {
+        var p = ps[i];
+        p.y -= p.vy;
+        p.x += Math.sin(t / 1800 + p.ph) * 0.18;
+        if (p.y < -12) { p.y = H + 12; p.x = Math.random() * W; }
+        if (p.x < -10) p.x = W + 10; else if (p.x > W + 10) p.x = -10;
+        var yy = (((p.y - sy * p.d * 0.12) % span) + span) % span - 12;
+        var tw = 0.6 + 0.4 * Math.sin(t / 700 + p.ph);
+        ctx.beginPath(); ctx.fillStyle = 'rgba(' + p.c + ',' + (p.a * 0.18 * tw).toFixed(3) + ')';
+        ctx.arc(p.x, yy, p.r * 4, 0, 6.283); ctx.fill();
+        ctx.beginPath(); ctx.fillStyle = 'rgba(' + p.c + ',' + (p.a * tw).toFixed(3) + ')';
+        ctx.arc(p.x, yy, p.r, 0, 6.283); ctx.fill();
+      }
+      raf(frame);
+    }
+    function start(){ if (!looping) { looping = true; raf(frame); } }
+    size();
+    window.addEventListener('resize', size);
+    document.addEventListener('visibilitychange', function(){ if (!document.hidden) start(); });
+    start();
+  });
 })();
 </script>
 </body>
