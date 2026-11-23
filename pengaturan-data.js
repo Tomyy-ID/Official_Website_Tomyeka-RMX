@@ -135,7 +135,7 @@ var PROJECTS = [
     date: "2026-10-04",
     fileSize: "3,17 MB",
     fileType: "ZIP",
-    unlockViews: 1000,
+    unlockViews: 500,
     manualViews: 0,
     downloadUrl: ""
 }
