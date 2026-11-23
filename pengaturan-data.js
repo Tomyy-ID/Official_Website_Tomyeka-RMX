@@ -125,5 +125,18 @@ var PROJECTS = [
     unlockViews: 1000,
     manualViews: 0,
     downloadUrl: "https://sub4unlock.co/tOyd"
-  }
+  },
+    {
+    id: "8",
+    name: "NEW TEXT",
+    fileName: "",
+    category: "Religi",
+    ytId: "hjkSPagW",
+    date: "2026-10-04",
+    fileSize: "3,17 MB",
+    fileType: "ZIP",
+    unlockViews: 1000,
+    manualViews: 0,
+    downloadUrl: ""
+}
 ];
