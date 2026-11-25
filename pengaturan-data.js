@@ -128,9 +128,9 @@ var PROJECTS = [
   },
     {
     id: "8",
-    name: "NEW TEXT",
-    fileName: "",
-    category: "Religi",
+    name: "TRAP TAK KAN PISAH_EREN__TOMYEKA-RMX",
+    fileName: "TRAP TAK KAN PISAH_EREN__TOMYEKA-RMX.zip",
+    category: "Trap",
     ytId: "hjkSPagW-",
     date: "2026-10-04",
     fileSize: "3,17 MB",
